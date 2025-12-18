@@ -1,0 +1,51 @@
+---
+import { site } from "../lib/site";
+
+const pathname = Astro.url.pathname;
+
+const nav = [
+	{ href: "/", label: "Home" },
+	{ href: "/CV.pdf", label: "CV (PDF)" },
+	{ href: "/contact/", label: "Contact" },
+] as const;
+
+function isActive(href: string) {
+	if (href === "/") return pathname === "/";
+	return pathname.startsWith(href);
+}
+---
+
+<a
+	href="#content"
+	class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-white focus:px-3 focus:py-2 focus:text-sm focus:font-medium focus:text-zinc-900 focus:shadow focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 focus:ring-offset-zinc-50"
+>
+	Skip to content
+</a>
+
+<header class="sticky top-0 z-40 border-b border-emerald-100/90 bg-white/75 backdrop-blur supports-[backdrop-filter]:bg-white/60">
+	<div class="container flex items-center justify-between gap-6 py-4">
+		<a href="/" class="flex items-center gap-3 no-underline">
+			<div class="h-10 w-10 rounded-xl bg-emerald-900 text-white shadow-sm ring-1 ring-emerald-800/60 flex items-center justify-center text-sm font-semibold">
+				MC
+			</div>
+			<div>
+				<p class="text-base font-semibold text-[#0f2c24] leading-tight">{site.name}</p>
+				<p class="text-xs uppercase tracking-[0.16em] text-emerald-700">Mathematics</p>
+			</div>
+		</a>
+
+		<nav class="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm" aria-label="Primary navigation">
+			{nav.map((item) => (
+				<a
+					href={item.href}
+					class:list={[
+						"no-underline decoration-emerald-200 underline-offset-4 hover:underline",
+						isActive(item.href) ? "font-semibold text-[#0f2c24] decoration-emerald-300" : "text-[#2c3a40]",
+					]}
+				>
+					{item.label}
+				</a>
+			))}
+		</nav>
+	</div>
+</header>

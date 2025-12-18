@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: "Source Sans Pro", "Avenir Next", "Segoe UI", "Helvetica Neue", sans-serif;
+    @apply bg-[#f7f4ec] text-[#1f2a30] antialiased;
+  }
+
+  ::selection {
+    @apply bg-emerald-200 text-emerald-950;
+  }
+
+  a {
+    @apply text-emerald-800 underline decoration-emerald-200/80 underline-offset-4;
+  }
+
+  a:hover {
+    @apply text-emerald-900 decoration-emerald-300/90;
+  }
+
+  a:focus-visible {
+    @apply outline-none ring-2 ring-emerald-600 ring-offset-2 ring-offset-[#f7f4ec];
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: "Cormorant Garamond", "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Garamond, serif;
+    @apply tracking-tight text-[#0f2c24];
+  }
+
+  h1 {
+    @apply text-3xl font-semibold;
+  }
+
+  h2 {
+    @apply text-2xl font-semibold;
+  }
+
+  h3 {
+    @apply text-xl font-semibold;
+  }
+
+  p {
+    @apply leading-7 text-[#2c3a40];
+  }
+
+  hr {
+    @apply border-emerald-100;
+  }
+
+  code {
+    @apply rounded bg-[#eef4ef] px-1 py-0.5 text-[0.9em] text-[#1f2a30];
+  }
+}
+
+@layer components {
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-md bg-emerald-800 px-4 py-2 text-sm font-semibold text-white no-underline shadow-sm transition hover:bg-emerald-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 focus-visible:ring-offset-2 focus-visible:ring-offset-[#f7f4ec];
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-md border border-emerald-100 bg-white px-4 py-2 text-sm font-semibold text-emerald-900 no-underline shadow-sm transition hover:border-emerald-200 hover:bg-emerald-50/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 focus-visible:ring-offset-2 focus-visible:ring-offset-[#f7f4ec];
+  }
+
+  .pill {
+    @apply inline-flex items-center rounded-full border border-emerald-100 bg-white px-2.5 py-1 text-xs font-semibold text-emerald-900 no-underline transition hover:border-emerald-200 hover:bg-emerald-50/60;
+  }
+
+  .container {
+    @apply mx-auto w-full max-w-6xl px-4;
+  }
+
+  .prose {
+    @apply text-[16px] leading-7 text-[#2c3a40];
+  }
+
+  .prose > * + * {
+    @apply mt-4;
+  }
+
+  .prose ul {
+    @apply list-disc pl-5;
+  }
+
+  .prose ol {
+    @apply list-decimal pl-5;
+  }
+
+  .prose li {
+    @apply mt-2;
+  }
+
+  .prose blockquote {
+    @apply border-l-2 border-zinc-300 pl-4 text-zinc-700;
+  }
+
+  :where(.prose) table {
+    @apply w-full border-collapse text-sm;
+  }
+
+  :where(.prose) th {
+    @apply border border-zinc-200 bg-zinc-50 px-3 py-2 text-left font-semibold text-zinc-900;
+  }
+
+  :where(.prose) td {
+    @apply border border-zinc-200 px-3 py-2 align-top;
+  }
+}

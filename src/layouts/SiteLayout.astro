@@ -1,0 +1,48 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import ProfileSidebar from "../components/ProfileSidebar.astro";
+import "../styles/global.css";
+import { site } from "../lib/site";
+
+type Props = {
+	title: string;
+	description?: string;
+};
+
+const { title, description } = Astro.props;
+const fullTitle = title === "Home" ? site.name : `${title} — ${site.name}`;
+const metaDescription = description ?? site.description;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content={metaDescription} />
+		<link rel="canonical" href={Astro.url.href} />
+		<meta property="og:title" content={fullTitle} />
+		<meta property="og:description" content={metaDescription} />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={Astro.url.href} />
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:title" content={fullTitle} />
+		<meta name="twitter:description" content={metaDescription} />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=mc" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{fullTitle}</title>
+	</head>
+	<body>
+		<Header />
+		<main id="content" class="container pb-20 pt-10 lg:pt-12">
+			<div class="grid gap-10 lg:grid-cols-[18rem_minmax(0,1fr)] lg:items-start lg:gap-12">
+				<ProfileSidebar />
+				<div class="min-w-0">
+					<slot />
+				</div>
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>

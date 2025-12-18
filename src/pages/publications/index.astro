@@ -1,0 +1,53 @@
+---
+import SiteLayout from "../../layouts/SiteLayout.astro";
+import { getCollection } from "astro:content";
+
+let entries = [];
+try {
+	entries = await getCollection("publications");
+} catch {
+	entries = [];
+}
+entries = entries.filter((e) => !e.data.draft);
+entries.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<SiteLayout title="Publications">
+	<section class="mt-2">
+		<h1>Publications</h1>
+		<p class="mt-4 max-w-prose text-zinc-800">
+			Preprints, papers, and write-ups. For talks and teaching, see <a href="/work/">Work</a>.
+		</p>
+		<div class="mt-6 max-w-2xl rounded-2xl border border-zinc-200/80 bg-white p-6 shadow-sm">
+			<div class="prose max-w-none">
+				{entries.length === 0 ? (
+					<p class="rounded-xl border border-zinc-200 bg-zinc-50 p-4">
+						No entries yet. Add Markdown files under <code>astro/src/content/publications/</code>.
+					</p>
+				) : (
+					<ol>
+						{entries.map((e) => (
+							<li>
+								<div>
+									<strong>{e.data.title}</strong>
+									{e.data.authors ? <div class="text-zinc-700">{e.data.authors}</div> : null}
+									<div class="text-zinc-600">
+										{e.data.venue ? `${e.data.venue} • ` : ""}
+										{e.data.date.toLocaleDateString(undefined, { year: "numeric", month: "short" })}
+									</div>
+									{e.data.links?.pdf ? (
+										<div class="mt-2 text-sm">
+											<a class="no-underline" href={e.data.links.pdf}>
+												PDF
+											</a>
+										</div>
+									) : null}
+								</div>
+							</li>
+						))}
+					</ol>
+				)}
+			</div>
+		</div>
+	</section>
+</SiteLayout>

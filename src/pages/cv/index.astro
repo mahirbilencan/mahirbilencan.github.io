@@ -1,0 +1,16 @@
+---
+import SiteLayout from "../../layouts/SiteLayout.astro";
+import { site } from "../../lib/site";
+---
+
+<SiteLayout title="CV">
+	<section class="prose max-w-none">
+		<h1>CV</h1>
+		<p>
+			Download: <a href="/CV.pdf">CV.pdf</a> • Email: <a href={`mailto:${site.email}`}>{site.email}</a>
+		</p>
+		<div class="mt-6 overflow-hidden rounded-lg border border-zinc-200 bg-white">
+			<iframe title="CV PDF" src="/CV.pdf#view=FitH" class="h-[80vh] w-full"></iframe>
+		</div>
+	</section>
+</SiteLayout>

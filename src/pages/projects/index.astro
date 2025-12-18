@@ -1,0 +1,85 @@
+---
+import SiteLayout from "../../layouts/SiteLayout.astro";
+import { getCollection } from "astro:content";
+
+const tag = Astro.url.searchParams.get("tag") ?? "";
+
+let entries = [];
+try {
+	entries = await getCollection("projects");
+} catch {
+	entries = [];
+}
+entries = entries.filter((e) => !e.data.draft);
+entries.sort((a, b) => (b.data.date?.valueOf?.() ?? 0) - (a.data.date?.valueOf?.() ?? 0));
+
+const allTags = Array.from(
+	new Set(entries.flatMap((e) => e.data.tags ?? []).map((t) => String(t).trim()).filter(Boolean))
+).sort((a, b) => a.localeCompare(b));
+
+const filtered = tag ? entries.filter((e) => (e.data.tags ?? []).includes(tag)) : entries;
+---
+
+<SiteLayout title="Projects" description="Selected technical write-ups and code-based work.">
+	<section class="mt-2">
+		<h1>Projects</h1>
+		<p class="mt-4 max-w-prose text-zinc-800">
+			Technical write-ups and code-based work. Use tags to quickly filter.
+		</p>
+
+		<div class="mt-6 flex flex-wrap items-center gap-2">
+			<a class={tag === "" ? "pill border-sky-300 bg-sky-50" : "pill"} href="/projects/">All</a>
+			{allTags.map((t) => (
+				<a class={tag === t ? "pill border-sky-300 bg-sky-50" : "pill"} href={`/projects/?tag=${encodeURIComponent(t)}`}>{t}</a>
+			))}
+		</div>
+
+		<div class="mt-8">
+			{filtered.length === 0 ? (
+				<p class="text-zinc-700">
+					No projects match this filter yet.
+				</p>
+			) : (
+				<ol class="space-y-6">
+					{filtered.map((e) => (
+						<li class="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
+							<div class="flex flex-wrap items-baseline justify-between gap-3">
+								<h2 class="text-lg font-semibold leading-6">
+									<a class="no-underline hover:underline" href={`/projects/${e.slug}/`}>{e.data.title}</a>
+								</h2>
+								{e.data.date ? (
+									<time class="text-xs font-medium text-zinc-500" datetime={e.data.date.toISOString()}>
+										{e.data.date.toLocaleDateString(undefined, { year: "numeric", month: "short" })}
+									</time>
+								) : null}
+							</div>
+
+							<p class="mt-2 text-sm leading-6 text-zinc-700">{e.data.summary}</p>
+
+							{e.data.tags?.length ? (
+								<div class="mt-4 flex flex-wrap gap-2">
+									{e.data.tags.map((t) => (
+										<a class="pill" href={`/projects/?tag=${encodeURIComponent(t)}`}>{t}</a>
+									))}
+								</div>
+							) : null}
+
+							<div class="mt-5 flex flex-wrap gap-3 text-sm">
+								<a class="no-underline hover:underline" href={`/projects/${e.slug}/`}>Read</a>
+								{e.data.links?.code ? (
+									<a class="no-underline hover:underline" href={e.data.links.code} target="_blank" rel="noreferrer">Code</a>
+								) : null}
+								{e.data.links?.paper ? (
+									<a class="no-underline hover:underline" href={e.data.links.paper} target="_blank" rel="noreferrer">Paper</a>
+								) : null}
+								{e.data.links?.demo ? (
+									<a class="no-underline hover:underline" href={e.data.links.demo} target="_blank" rel="noreferrer">Demo</a>
+								) : null}
+							</div>
+						</li>
+					))}
+				</ol>
+			)}
+		</div>
+	</section>
+</SiteLayout>

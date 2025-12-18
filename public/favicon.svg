@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Mahir Bilen Can">
+	<rect x="4" y="4" width="56" height="56" rx="14" fill="#0b1220" />
+	<text
+		x="32"
+		y="38"
+		text-anchor="middle"
+		font-size="22"
+		font-weight="600"
+		font-family="Georgia, ui-serif, serif"
+		fill="#ffffff"
+		letter-spacing="1"
+	>
+		MC
+	</text>
+</svg>
