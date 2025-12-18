@@ -1,0 +1,48 @@
+{
+  "$ref": "#/definitions/teaching",
+  "definitions": {
+    "teaching": {
+      "type": "object",
+      "properties": {
+        "draft": {
+          "type": "boolean",
+          "default": false
+        },
+        "course": {
+          "type": "string"
+        },
+        "term": {
+          "type": "string"
+        },
+        "institution": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "links": {
+          "type": "object",
+          "properties": {
+            "syllabus": {
+              "type": "string",
+              "format": "uri"
+            },
+            "website": {
+              "$ref": "#/definitions/teaching/properties/links/properties/syllabus"
+            }
+          },
+          "additionalProperties": false
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "course",
+        "term"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

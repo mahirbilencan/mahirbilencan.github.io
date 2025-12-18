@@ -1,0 +1,82 @@
+{
+  "$ref": "#/definitions/publications",
+  "definitions": {
+    "publications": {
+      "type": "object",
+      "properties": {
+        "draft": {
+          "type": "boolean",
+          "default": false
+        },
+        "title": {
+          "type": "string"
+        },
+        "date": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "string",
+              "format": "date"
+            },
+            {
+              "type": "integer",
+              "format": "unix-time"
+            }
+          ]
+        },
+        "authors": {
+          "type": "string"
+        },
+        "venue": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "preprint",
+            "published",
+            "in-prep"
+          ]
+        },
+        "selected": {
+          "type": "boolean",
+          "default": false
+        },
+        "links": {
+          "type": "object",
+          "properties": {
+            "pdf": {
+              "type": "string",
+              "format": "uri"
+            },
+            "arxiv": {
+              "$ref": "#/definitions/publications/properties/links/properties/pdf"
+            },
+            "doi": {
+              "type": "string"
+            },
+            "code": {
+              "$ref": "#/definitions/publications/properties/links/properties/pdf"
+            },
+            "project": {
+              "$ref": "#/definitions/publications/properties/links/properties/pdf"
+            }
+          },
+          "additionalProperties": false
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "date"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}
