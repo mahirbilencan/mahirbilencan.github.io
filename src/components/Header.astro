@@ -22,7 +22,7 @@ function isActive(href: string) {
 	Skip to content
 </a>
 
-<header class="sticky top-0 z-40 border-b border-emerald-100/90 bg-white/75 backdrop-blur supports-[backdrop-filter]:bg-white/60">
+<header class="sticky top-0 z-40 border-b border-stone-200/90 bg-white/75 backdrop-blur supports-[backdrop-filter]:bg-white/60">
 	<div class="container flex items-center justify-between gap-6 py-4">
 		<a href="/" class="flex items-center gap-3 no-underline">
 			<div class="h-10 w-10 rounded-xl bg-emerald-900 text-white shadow-sm ring-1 ring-emerald-800/60 flex items-center justify-center text-sm font-semibold">
@@ -39,8 +39,8 @@ function isActive(href: string) {
 				<a
 					href={item.href}
 					class:list={[
-						"no-underline decoration-emerald-200 underline-offset-4 hover:underline",
-						isActive(item.href) ? "font-semibold text-[#0f2c24] decoration-emerald-300" : "text-[#2c3a40]",
+						"no-underline decoration-stone-300 underline-offset-4 hover:underline",
+						isActive(item.href) ? "font-semibold text-[#0f2c24] decoration-stone-400" : "text-[#2c3a40]",
 					]}
 				>
 					{item.label}

@@ -9,7 +9,11 @@ try {
 	entries = [];
 }
 entries = entries.filter((e) => !e.data.draft);
-entries.sort((a, b) => a.data.term.localeCompare(b.data.term));
+entries.sort((a, b) => {
+	const inst = (a.data.institution ?? "").localeCompare(b.data.institution ?? "");
+	if (inst !== 0) return inst;
+	return a.data.course.localeCompare(b.data.course);
+});
 ---
 
 <SiteLayout title="Teaching">
@@ -27,7 +31,7 @@ entries.sort((a, b) => a.data.term.localeCompare(b.data.term));
 					<ul>
 						{entries.map((e) => (
 							<li>
-								<strong>{e.data.course}</strong> — {e.data.term}
+								<strong>{e.data.course}</strong>
 								{e.data.institution ? ` (${e.data.institution})` : ""}
 							</li>
 						))}

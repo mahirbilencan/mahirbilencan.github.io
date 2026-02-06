@@ -15,15 +15,15 @@
   }
 
   ::selection {
-    @apply bg-emerald-200 text-emerald-950;
+    @apply bg-stone-300 text-emerald-950;
   }
 
   a {
-    @apply text-emerald-800 underline decoration-emerald-200/80 underline-offset-4;
+    @apply text-emerald-800 underline decoration-stone-300/80 underline-offset-4;
   }
 
   a:hover {
-    @apply text-emerald-900 decoration-emerald-300/90;
+    @apply text-emerald-900 decoration-stone-400/90;
   }
 
   a:focus-visible {
@@ -54,7 +54,7 @@
   }
 
   hr {
-    @apply border-emerald-100;
+    @apply border-stone-200;
   }
 
   code {
@@ -69,11 +69,11 @@
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center rounded-md border border-emerald-100 bg-white px-4 py-2 text-sm font-semibold text-emerald-900 no-underline shadow-sm transition hover:border-emerald-200 hover:bg-emerald-50/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 focus-visible:ring-offset-2 focus-visible:ring-offset-[#f7f4ec];
+    @apply inline-flex items-center justify-center rounded-md border border-stone-200 bg-white px-4 py-2 text-sm font-semibold text-emerald-900 no-underline shadow-sm transition hover:border-stone-300 hover:bg-stone-100/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 focus-visible:ring-offset-2 focus-visible:ring-offset-[#f7f4ec];
   }
 
   .pill {
-    @apply inline-flex items-center rounded-full border border-emerald-100 bg-white px-2.5 py-1 text-xs font-semibold text-emerald-900 no-underline transition hover:border-emerald-200 hover:bg-emerald-50/60;
+    @apply inline-flex items-center rounded-full border border-stone-200 bg-white px-2.5 py-1 text-xs font-semibold text-emerald-900 no-underline transition hover:border-stone-300 hover:bg-stone-100/70;
   }
 
   .container {
