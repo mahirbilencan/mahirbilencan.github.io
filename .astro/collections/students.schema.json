@@ -1,0 +1,53 @@
+{
+  "$ref": "#/definitions/students",
+  "definitions": {
+    "students": {
+      "type": "object",
+      "properties": {
+        "draft": {
+          "type": "boolean",
+          "default": false
+        },
+        "name": {
+          "type": "string"
+        },
+        "degree": {
+          "type": "string"
+        },
+        "years": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "current",
+            "alumni"
+          ]
+        },
+        "coAdvisor": {
+          "type": "string"
+        },
+        "thesis": {
+          "type": "string"
+        },
+        "currentPosition": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "degree",
+        "years",
+        "status"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

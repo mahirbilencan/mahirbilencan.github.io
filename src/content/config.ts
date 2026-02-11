@@ -79,4 +79,19 @@ const projects = defineCollection({
 	}),
 });
 
-export const collections = { publications, talks, teaching, projects };
+const students = defineCollection({
+	type: "content",
+	schema: z.object({
+		draft: z.boolean().default(false),
+		name: z.string(),
+		degree: z.string(),
+		years: z.string(),
+		status: z.enum(["current", "alumni"]),
+		coAdvisor: z.string().optional(),
+		thesis: z.string().optional(),
+		currentPosition: z.string().optional(),
+		note: z.string().optional(),
+	}),
+});
+
+export const collections = { publications, talks, teaching, projects, students };

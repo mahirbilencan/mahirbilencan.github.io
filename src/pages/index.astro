@@ -1,6 +1,7 @@
 ---
 import SiteLayout from "../layouts/SiteLayout.astro";
 import { site } from "../lib/site";
+import { getCollection } from "astro:content";
 
 const researchThemes = [
 	{
@@ -31,8 +32,8 @@ const researchThemes = [
 
 const teaching = [
 	{
-		course: "Consolidated Calculus (Math 1310)",
-		term: "Current",
+		course: "Calculus III (Math 2210)",
+		term: "Spring 2026",
 		note: "Course materials and assignments are available to enrolled students via Canvas.",
 	},
 ] as const;
@@ -54,24 +55,28 @@ const almaMaters = [
 	},
 ] as const;
 
-const advisees = [
-	{
-		name: "Zafar Iqbal",
-		degree: "PhD",
-		note: "2024–present • co-advising with A. Casimiro (NOVA FCT)",
-	},
-	{ name: "Naufil Sakran", degree: "PhD", note: "2021–present" },
-	{ name: "Dillon Montero", degree: "PhD", note: "2021–2025" },
-	{ name: "Nestor Diaz Morera", degree: "PhD", note: "2018–2024" },
-	{ name: "Hayden Houser", degree: "PhD", note: "2017–2024" },
-	{ name: "Corey Wolfe", degree: "PhD", note: "2017–2024" },
-	{ name: "Yiyang She", degree: "PhD", note: "2016–2021" },
-	{ name: "Aram Bingham", degree: "PhD", note: "2015–2021" },
-	{ name: "Tien Le", degree: "PhD", note: "2015–2020" },
-	{ name: "Özlem Uğurlu", degree: "PhD", note: "2013–2018" },
-	{ name: "Tim Twelbeck", degree: "PhD", note: "2008–2013" },
-	{ name: "Dejun Zhang", degree: "MS", note: "2020" },
-] as const;
+let studentEntries = [];
+try {
+	studentEntries = await getCollection("students");
+} catch {
+	studentEntries = [];
+}
+
+function firstYear(value: string) {
+	const years = (value.match(/\d{4}/g) ?? []).map((item) => Number(item));
+	return years[0] ?? 0;
+}
+
+const currentAdvisees = studentEntries
+	.filter((entry) => !entry.data.draft && entry.data.status === "current")
+	.sort((a, b) => firstYear(b.data.years) - firstYear(a.data.years))
+	.map((entry) => ({
+		name: entry.data.name,
+		degree: entry.data.degree,
+		note: [entry.data.years, entry.data.coAdvisor ? `co-advising with ${entry.data.coAdvisor}` : entry.data.note]
+			.filter(Boolean)
+			.join(" • "),
+	}));
 
 const editorialWork = [
 	{ label: "Semigroup Forum", href: "https://www.springer.com/journal/233" },
@@ -224,24 +229,31 @@ const newsItems = [
 				<article class="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm ring-1 ring-stone-200">
 					<div class="flex items-center justify-between gap-3">
 						<h3 class="text-xl font-semibold">Graduate students & mentees</h3>
-						<span class="text-xs uppercase tracking-[0.12em] text-emerald-700">Links can be added</span>
+						<a class="pill" href="/students/">Full archive</a>
 					</div>
-					<ul class="mt-4 space-y-4">
-						{advisees.map((advisee) => (
-							<li class="flex gap-3 rounded-xl bg-stone-100/70 p-4 ring-1 ring-stone-200">
-								<span class="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-emerald-700"></span>
-								<div class="space-y-1">
-									<p class="text-base font-semibold text-[#0f2c24]">
-										{advisee.name}
-										<span class="ml-2 rounded-full bg-white px-2 py-0.5 text-xs font-semibold text-emerald-900 ring-1 ring-stone-200">
-											{advisee.degree}
-										</span>
-									</p>
-									<p class="text-sm text-[#2c3a40]">{advisee.note}</p>
-								</div>
-							</li>
-						))}
-					</ul>
+					{currentAdvisees.length === 0 ? (
+						<p class="mt-4 rounded-xl bg-stone-100/70 p-4 text-sm text-[#2c3a40] ring-1 ring-stone-200">No current students listed.</p>
+					) : (
+						<ul class="mt-4 space-y-4">
+							{currentAdvisees.map((advisee) => (
+								<li class="flex gap-3 rounded-xl bg-stone-100/70 p-4 ring-1 ring-stone-200">
+									<span class="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-emerald-700"></span>
+									<div class="space-y-1">
+										<p class="text-base font-semibold text-[#0f2c24]">
+											{advisee.name}
+											<span class="ml-2 rounded-full bg-white px-2 py-0.5 text-xs font-semibold text-emerald-900 ring-1 ring-stone-200">
+												{advisee.degree}
+											</span>
+										</p>
+										<p class="text-sm text-[#2c3a40]">{advisee.note}</p>
+									</div>
+								</li>
+							))}
+						</ul>
+					)}
+					<p class="mt-4 text-sm text-[#2c3a40]">
+						View full advising history, including alumni, in the <a href="/students/">student archive</a>.
+					</p>
 				</article>
 			</div>
 		</section>
