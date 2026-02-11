@@ -122,24 +122,26 @@ const newsItems = [
 				</div>
 
 				<dl class="grid gap-4 rounded-2xl bg-stone-100/70 p-5 text-sm text-[#2c3a40] ring-1 ring-stone-200">
-					<div class="grid grid-cols-[9rem_1fr] gap-2">
+					<div class="grid gap-1 sm:grid-cols-[9rem_minmax(0,1fr)] sm:gap-2">
 						<dt class="text-emerald-800">Role</dt>
-						<dd>Professor of Mathematics, {site.affiliation}</dd>
+						<dd class="min-w-0 break-words">Professor of Mathematics, {site.affiliation}</dd>
 					</div>
-					<div class="grid grid-cols-[9rem_1fr] gap-2">
+					<div class="grid gap-1 sm:grid-cols-[9rem_minmax(0,1fr)] sm:gap-2">
 						<dt class="text-emerald-800">Research focus</dt>
-						<dd>Algebraic groups and monoids, representation theory, algebraic geometry, error-correcting codes</dd>
+						<dd class="min-w-0 break-words">
+							Algebraic groups and monoids, representation theory, algebraic geometry, error-correcting codes
+						</dd>
 					</div>
-					<div class="grid grid-cols-[9rem_1fr] gap-2">
+					<div class="grid gap-1 sm:grid-cols-[9rem_minmax(0,1fr)] sm:gap-2">
 						<dt class="text-emerald-800">Office</dt>
-						<dd>Gibson Hall, Room 319 — New Orleans, LA</dd>
+						<dd class="min-w-0 break-words">Gibson Hall, Room 319 — New Orleans, LA</dd>
 					</div>
-					<div class="grid grid-cols-[9rem_1fr] gap-2">
+					<div class="grid gap-1 sm:grid-cols-[9rem_minmax(0,1fr)] sm:gap-2">
 						<dt class="text-emerald-800">Alma maters</dt>
-						<dd class="grid gap-3 sm:grid-cols-2">
+						<dd class="grid min-w-0 gap-3 sm:grid-cols-2">
 							{almaMaters.map((item) => (
 								<a
-									class="flex items-center gap-3 rounded-xl border border-stone-200 bg-white px-3 py-2 text-emerald-900 no-underline shadow-sm transition hover:border-stone-300 hover:bg-stone-100/70"
+									class="flex min-w-0 items-center gap-3 rounded-xl border border-stone-200 bg-white px-3 py-2 text-emerald-900 no-underline shadow-sm transition hover:border-stone-300 hover:bg-stone-100/70"
 									href={item.href}
 									target="_blank"
 									rel="noreferrer"
@@ -152,8 +154,8 @@ const newsItems = [
 											loading="lazy"
 										/>
 									</span>
-									<span class="leading-5">
-										<span class="block text-sm font-semibold">{item.school}</span>
+									<span class="min-w-0 leading-5">
+										<span class="block break-words text-sm font-semibold">{item.school}</span>
 										<span class="block text-xs text-[#2c3a40]">
 											{item.degree} ’{item.year.slice(-2)}
 										</span>
