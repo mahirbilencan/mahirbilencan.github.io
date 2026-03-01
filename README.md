@@ -1,39 +1,27 @@
-# Personal Website (Astro + Tailwind)
+# Mahir Bilen Can
 
-This folder contains the rebuilt version of the site using Astro + Tailwind, designed to be fast, typographically clean, and easy to maintain.
+<p>
+  <img src="public/images/Mahir.jpg" alt="Portrait of Mahir Bilen Can" width="220">
+</p>
 
-The legacy Jekyll-based site has been archived under `archive/legacy-jekyll/`.
+Professor of Mathematics at Tulane University.
 
-## Quick Start
+This repository hosts my personal academic website, including research interests, publications, professional activities, teaching, students, and contact information.
 
-From the repository root:
+## About
 
-- Install: `npm ci`
-- Dev server: `npm run dev` (defaults to `http://localhost:4321`)
-- Production build: `npm run build`
-- Preview build: `npm run preview`
+My work focuses on algebraic groups and monoids, representation theory, algebraic geometry, and applications to coding theory and secure communication.
 
-## Where to Edit Things
+## Quick Links
 
-- Site metadata + links: `src/lib/site.ts`
-- Global styles + typography rules: `src/styles/global.css`
-- Layout (header/footer/meta): `src/layouts/SiteLayout.astro`
-- Pages:
-  - Home: `src/pages/index.astro`
-  - Research: `src/pages/research/index.astro`
-  - Publications: `src/pages/publications/index.astro`
-  - Talks: `src/pages/talks/index.astro`
-  - Teaching: `src/pages/teaching/index.astro`
-  - CV: `src/pages/cv/index.astro`
-  - Contact: `src/pages/contact/index.astro`
+- Website: [mahirbilencan.github.io](https://mahirbilencan.github.io/)
+- Publications: [Publications page](https://mahirbilencan.github.io/publications/)
+- Professional Activities: [Professional activities page](https://mahirbilencan.github.io/work/)
+- CV: [CV (PDF)](https://mahirbilencan.github.io/CV.pdf)
+- Email: [mcan@tulane.edu](mailto:mcan@tulane.edu)
 
-## Content Collections
+## Profiles
 
-Publications/Talks/Teaching/Projects are set up as content collections so you can add entries as Markdown files:
-
-- `src/content/publications/`
-- `src/content/talks/`
-- `src/content/teaching/`
-- `src/content/projects/`
-
-See `src/content/README.md` for examples.
+- ORCID: [0000-0002-0175-4897](https://orcid.org/0000-0002-0175-4897)
+- arXiv: [Author search](https://arxiv.org/search/math?query=mahir+bilen+can&searchtype=author&abstracts=show&order=-announced_date_first&size=50)
+- Google Scholar: [Citation profile](https://scholar.google.com/citations?user=jbvQXE4AAAAJ&hl=en&oi=ao)
