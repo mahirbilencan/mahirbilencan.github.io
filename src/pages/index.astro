@@ -133,8 +133,20 @@ function isExternalLink(href: string) {
 				<div class="flex flex-wrap gap-2">
 					<a class="btn-primary" href="/CV.pdf">CV</a>
 					<a class="btn-secondary" href={`mailto:${site.email}`}>Email</a>
+					<a class="btn-secondary gap-2" href={site.social.orcid} target="_blank" rel="noreferrer">
+						<img src="/images/ai-orcid.svg" alt="" aria-hidden="true" class="h-4 w-4" width="16" height="16" loading="lazy" />
+						<span>ORCID</span>
+					</a>
+					<a class="btn-secondary gap-2" href={site.social.arxiv} target="_blank" rel="noreferrer">
+						<img src="/images/ai-arxiv.svg" alt="" aria-hidden="true" class="h-4 w-4" width="16" height="16" loading="lazy" />
+						<span>arXiv</span>
+					</a>
+					<a class="btn-secondary gap-2" href={site.social.googleScholar} target="_blank" rel="noreferrer">
+						<img src="/images/ai-google-scholar.svg" alt="" aria-hidden="true" class="h-4 w-4" width="16" height="16" loading="lazy" />
+						<span>Google Scholar</span>
+					</a>
 				</div>
-			</div>
+				</div>
 
 			<div class="space-y-6">
 				<div>
@@ -150,7 +162,7 @@ function isExternalLink(href: string) {
 					<div class="grid gap-1 sm:grid-cols-[8rem_minmax(0,1fr)]">
 						<dt class="font-semibold text-slate-900">Office</dt>
 						<dd>Gibson Hall, Room 319, New Orleans, LA</dd>
-					</div>
+				</div>
 					<div class="grid gap-1 sm:grid-cols-[8rem_minmax(0,1fr)]">
 						<dt class="font-semibold text-slate-900">Research</dt>
 						<dd>Algebraic groups, representation theory, algebraic geometry, coding theory</dd>
