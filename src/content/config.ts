@@ -1,24 +1,29 @@
 import { defineCollection, z } from "astro:content";
 
 const externalLink = z.string().url();
+const linkValue = z.string().min(1);
 
 const publications = defineCollection({
 	type: "content",
 	schema: z.object({
 		draft: z.boolean().default(false),
+		order: z.number().int().positive().optional(),
+		kind: z.enum(["submitted", "journal", "conference", "preprint", "book"]).default("journal"),
 		title: z.string(),
 		date: z.coerce.date(),
 		authors: z.string().optional(),
 		venue: z.string().optional(),
-		status: z.enum(["preprint", "published", "in-prep"]).optional(),
+		status: z.enum(["submitted", "published", "preprint"]).default("published"),
+		abstract: z.string().optional(),
 		selected: z.boolean().default(false),
 		links: z
 			.object({
-				pdf: externalLink.optional(),
-				arxiv: externalLink.optional(),
-				doi: z.string().optional(),
-				code: externalLink.optional(),
-				project: externalLink.optional(),
+				pdf: linkValue.optional(),
+				arxiv: linkValue.optional(),
+				doi: linkValue.optional(),
+				code: linkValue.optional(),
+				project: linkValue.optional(),
+				website: linkValue.optional(),
 			})
 			.optional(),
 	}),

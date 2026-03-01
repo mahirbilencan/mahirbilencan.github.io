@@ -1,40 +1,32 @@
 ---
 import SiteLayout from "../layouts/SiteLayout.astro";
+import { Image } from "astro:assets";
 import { site } from "../lib/site";
 import { getCollection } from "astro:content";
+import mahirImage from "../assets/images/Mahir.jpg";
+import pennLogo from "../assets/images/Penn-logo.png";
+import metuLogo from "../assets/images/metu.png";
 
 const researchThemes = [
 	{
 		title: "Algebraic groups and monoids",
 		summary:
 			"Structure, classification, and geometric properties, with applications to representation theory and combinatorics.",
-		keywords: ["Reductive groups", "Invariant theory", "Symmetric varieties"],
 	},
 	{
 		title: "Representation theory",
 		summary:
-			"Interactions between representations, geometry, and number theory—especially where symmetry clarifies complex systems.",
-		keywords: ["Unitary representations", "Harmonic analysis", "Category-theoretic tools"],
+			"Interactions between representations, geometry, and number theory, especially where symmetry clarifies complex systems.",
 	},
 	{
 		title: "Algebraic geometry",
 		summary:
 			"Geometric methods for understanding algebraic structures and moduli, connecting geometry with computational techniques.",
-		keywords: ["Singularities", "Compactifications", "Birational geometry"],
 	},
 	{
-		title: "Error-correcting codes & secure communication",
+		title: "Error-correcting codes and secure communication",
 		summary:
 			"Algebraic and geometric approaches to robust communication, coding theory, and cryptographic protocols.",
-		keywords: ["Classical & quantum codes", "Post-quantum security", "Information theory"],
-	},
-] as const;
-
-const teaching = [
-	{
-		course: "Calculus III (Math 2210)",
-		term: "Spring 2026",
-		note: "Course materials and assignments are available to enrolled students via Canvas.",
 	},
 ] as const;
 
@@ -44,288 +36,237 @@ const almaMaters = [
 		degree: "PhD",
 		year: "2006",
 		href: "https://www.math.upenn.edu/",
-		logo: "/images/Penn-logo.png",
+		logo: pennLogo,
 	},
 	{
 		school: "METU (Turkey)",
 		degree: "BSc",
 		year: "2001",
 		href: "https://math.metu.edu.tr/en/program-overview",
-		logo: "/images/metu.png",
+		logo: metuLogo,
 	},
 ] as const;
 
-let studentEntries = [];
-try {
-	studentEntries = await getCollection("students");
-} catch {
-	studentEntries = [];
-}
-
-function firstYear(value: string) {
-	const years = (value.match(/\d{4}/g) ?? []).map((item) => Number(item));
-	return years[0] ?? 0;
-}
-
-const currentAdvisees = studentEntries
-	.filter((entry) => !entry.data.draft && entry.data.status === "current")
-	.sort((a, b) => firstYear(b.data.years) - firstYear(a.data.years))
-	.map((entry) => ({
-		name: entry.data.name,
-		degree: entry.data.degree,
-		note: [entry.data.years, entry.data.coAdvisor ? `co-advising with ${entry.data.coAdvisor}` : entry.data.note]
-			.filter(Boolean)
-			.join(" • "),
-	}));
-
-const editorialWork = [
-	{ label: "Semigroup Forum", href: "https://www.springer.com/journal/233" },
-	{ label: "Journal of GGT", href: "https://www.springer.com/journal/41468" },
-	{ label: "Reviewer for Mathscinet and zbMath", href: "https://mathscinet.ams.org/" },
-] as const;
-
-const newsItems = [
+const recentHighlights = [
 	{
 		year: "2025",
 		detail:
-			"Visiting IIT Bombay for the Combinatorics, Geometry, and Representation Theory conference at the International Centre for Theoretical Sciences (dedicated to the memory of Prof. V. Lakshmibai).",
+			"Visited IIT Bombay for the conference on Combinatorics, Geometry, and Representation Theory at ICTS.",
 	},
-	{ year: "2025", detail: "Provost’s Proof of Concept award." },
+	{ year: "2025", detail: "Received Tulane's Provost's Proof of Concept award." },
 	{
 		year: "2024",
-		detail: "Fulbright US Scholar to Portugal award. Host institution: Universidade Nova de Lisboa.",
-	},
-	{
-		year: "2023",
-		detail: "Visiting Indian Institute of Technology Bombay.",
-	},
-	{
-		year: "2023",
-		detail: "Visiting Okinawa Institute of Science and Technology, Japan.",
+		detail: "Fulbright U.S. Scholar to Portugal (host: Universidade Nova de Lisboa).",
 	},
 ] as const;
+
+let students = [];
+try {
+	students = await getCollection("students");
+} catch {
+	students = [];
+}
+
+const currentStudents = students
+	.filter((entry) => !entry.data.draft && entry.data.status === "current")
+	.map((entry) => entry.data);
+
+let publications = [];
+try {
+	publications = await getCollection("publications");
+} catch {
+	publications = [];
+}
+
+const recentPublications = publications
+	.filter((entry) => !entry.data.draft && entry.data.status !== "preprint" && entry.data.kind !== "book")
+	.sort((a, b) => {
+		const left = a.data.order ?? Number.MAX_SAFE_INTEGER;
+		const right = b.data.order ?? Number.MAX_SAFE_INTEGER;
+		if (left !== right) return left - right;
+		return b.data.date.valueOf() - a.data.date.valueOf();
+	})
+	.slice(0, 6);
+
+function publicationLinks(entry: (typeof recentPublications)[number]) {
+	const links = entry.data.links ?? {};
+	const list: Array<{ label: string; href: string }> = [];
+	if (links.doi) list.push({ label: "DOI", href: links.doi });
+	if (links.arxiv) list.push({ label: "arXiv", href: links.arxiv });
+	if (links.project) list.push({ label: "Project", href: links.project });
+	if (links.pdf) list.push({ label: "PDF", href: links.pdf });
+	return list;
+}
+
+function isExternalLink(href: string) {
+	return href.startsWith("http://") || href.startsWith("https://");
+}
 ---
 
 <SiteLayout title="Home" description={site.description}>
 	<div class="space-y-12">
-		<section class="rounded-2xl border border-stone-200 bg-white/90 p-8 shadow-sm ring-1 ring-stone-200">
-			<div class="max-w-3xl space-y-6">
-				<p class="text-xs font-semibold uppercase tracking-[0.24em] text-emerald-700">
-					Tulane University • Mathematics
-				</p>
-				<div class="space-y-3">
-					<h1 class="text-4xl font-semibold leading-tight sm:text-5xl">Mahir Bilen Can</h1>
-					<p class="text-lg leading-8 text-[#2c3a40]">
-						I am a professor of mathematics at Tulane University. My research explores the interface of algebraic structures,
-						representation theory, and geometry, with applications ranging from error-correcting codes to secure communication.
+		<section class="grid gap-8 border-b border-slate-200 pb-10 lg:grid-cols-[15rem_minmax(0,1fr)]">
+			<div class="space-y-4">
+				<Image
+					src={mahirImage}
+					alt={`Portrait of ${site.name}`}
+					class="mx-auto w-full max-w-[16rem] border border-slate-300 object-cover sm:max-w-[18rem] lg:mx-0 lg:max-w-none"
+					loading="eager"
+					width={900}
+					sizes="(max-width: 640px) 16rem, (max-width: 1024px) 18rem, 240px"
+					format="webp"
+					quality={90}
+				/>
+				<div class="space-y-2 text-sm text-slate-700">
+					<p class="font-semibold text-slate-900">{site.name}</p>
+					<p>Professor of Mathematics</p>
+					<p>{site.affiliation}</p>
+					<p>{site.location}</p>
+					<p><a href={`mailto:${site.email}`}>{site.email}</a></p>
+				</div>
+				<div class="flex flex-wrap gap-2">
+					<a class="btn-primary" href="/CV.pdf">CV</a>
+					<a class="btn-secondary" href={`mailto:${site.email}`}>Email</a>
+				</div>
+			</div>
+
+			<div class="space-y-6">
+				<div>
+					<p class="section-title">Tulane University</p>
+					<h1 class="mt-2 text-3xl leading-tight sm:text-5xl">Mahir Bilen Can</h1>
+					<p class="mt-4 max-w-3xl text-[16px] leading-8 text-slate-700">
+						I am a professor of mathematics at Tulane University. My research focuses on algebraic groups and monoids,
+						representation theory, algebraic geometry, and applications to coding theory and secure communication.
 					</p>
 				</div>
 
-				<div class="flex flex-wrap gap-3">
-					<a class="btn-primary" href="/CV.pdf">Download CV</a>
-					<a class="btn-secondary" href={`mailto:${site.email}`}>Email</a>
-				</div>
+				<dl class="grid gap-3 border-y border-slate-200 py-4 text-sm text-slate-700">
+					<div class="grid gap-1 sm:grid-cols-[8rem_minmax(0,1fr)]">
+						<dt class="font-semibold text-slate-900">Office</dt>
+						<dd>Gibson Hall, Room 319, New Orleans, LA</dd>
+					</div>
+					<div class="grid gap-1 sm:grid-cols-[8rem_minmax(0,1fr)]">
+						<dt class="font-semibold text-slate-900">Research</dt>
+						<dd>Algebraic groups, representation theory, algebraic geometry, coding theory</dd>
+					</div>
+				</dl>
 
-				<dl class="grid gap-4 rounded-2xl bg-stone-100/70 p-5 text-sm text-[#2c3a40] ring-1 ring-stone-200">
-					<div class="grid gap-1 sm:grid-cols-[9rem_minmax(0,1fr)] sm:gap-2">
-						<dt class="text-emerald-800">Role</dt>
-						<dd class="min-w-0 break-words">Professor of Mathematics, {site.affiliation}</dd>
-					</div>
-					<div class="grid gap-1 sm:grid-cols-[9rem_minmax(0,1fr)] sm:gap-2">
-						<dt class="text-emerald-800">Research focus</dt>
-						<dd class="min-w-0 break-words">
-							Algebraic groups and monoids, representation theory, algebraic geometry, error-correcting codes
-						</dd>
-					</div>
-					<div class="grid gap-1 sm:grid-cols-[9rem_minmax(0,1fr)] sm:gap-2">
-						<dt class="text-emerald-800">Office</dt>
-						<dd class="min-w-0 break-words">Gibson Hall, Room 319 — New Orleans, LA</dd>
-					</div>
-					<div class="grid gap-1 sm:grid-cols-[9rem_minmax(0,1fr)] sm:gap-2">
-						<dt class="text-emerald-800">Alma maters</dt>
-						<dd class="grid min-w-0 gap-3 sm:grid-cols-2">
-							{almaMaters.map((item) => (
+				<div>
+					<p class="mb-2 text-sm font-semibold text-slate-900">Education</p>
+					<ul class="grid gap-2 sm:grid-cols-2">
+						{almaMaters.map((item) => (
+							<li>
 								<a
-									class="flex min-w-0 items-center gap-3 rounded-xl border border-stone-200 bg-white px-3 py-2 text-emerald-900 no-underline shadow-sm transition hover:border-stone-300 hover:bg-stone-100/70"
+									class="flex items-center gap-3 border border-slate-200 px-3 py-2 no-underline hover:bg-slate-50"
 									href={item.href}
 									target="_blank"
 									rel="noreferrer"
 								>
-									<span class="flex h-10 w-10 items-center justify-center rounded-lg bg-stone-100">
-										<img
-											class="max-h-8 max-w-[2rem] object-contain"
+										<Image
 											src={item.logo}
 											alt={`${item.school} logo`}
+											class="h-9 w-9 object-contain"
 											loading="lazy"
+											width={36}
+											height={36}
+											format="webp"
+											quality={85}
 										/>
-									</span>
-									<span class="min-w-0 leading-5">
-										<span class="block break-words text-sm font-semibold">{item.school}</span>
-										<span class="block text-xs text-[#2c3a40]">
-											{item.degree} ’{item.year.slice(-2)}
-										</span>
+									<span class="text-sm text-slate-700">
+										<span class="block font-semibold text-slate-900">{item.school}</span>
+										<span>{item.degree} ({item.year})</span>
 									</span>
 								</a>
-							))}
-						</dd>
-					</div>
-				</dl>
-			</div>
-		</section>
-
-		<section id="research" class="space-y-5">
-			<div class="flex items-baseline justify-between gap-4">
-				<div>
-					<p class="text-xs uppercase tracking-[0.2em] text-emerald-700">Research</p>
-					<h2 class="text-3xl font-semibold leading-tight">Themes & directions</h2>
-				</div>
-				<a class="pill" href="/CV.pdf">See full CV</a>
-			</div>
-			<div class="grid gap-6 md:grid-cols-2">
-				{researchThemes.map((theme) => (
-					<article class="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm ring-1 ring-stone-200">
-						<div class="flex items-start justify-between gap-3">
-							<h3 class="text-xl font-semibold">{theme.title}</h3>
-							<span class="rounded-full bg-stone-100 px-3 py-1 text-xs font-semibold text-emerald-800 ring-1 ring-stone-200">
-								Research
-							</span>
-						</div>
-						<p class="mt-3 text-[15px] leading-7 text-[#2c3a40]">{theme.summary}</p>
-						<ul class="mt-4 flex flex-wrap gap-2 text-xs">
-							{theme.keywords.map((k) => (
-								<li class="pill bg-stone-100/70 text-emerald-900">{k}</li>
-							))}
-						</ul>
-					</article>
-				))}
-			</div>
-		</section>
-
-		<section id="teaching" class="space-y-5">
-			<div class="flex items-baseline justify-between gap-4">
-				<div>
-					<p class="text-xs uppercase tracking-[0.2em] text-emerald-700">Teaching & mentorship</p>
-					<h2 class="text-3xl font-semibold leading-tight">Instruction and advising</h2>
-				</div>
-				<a class="pill" href="/teaching/">Teaching archive</a>
-			</div>
-
-			<div class="grid gap-6">
-				<article class="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm ring-1 ring-stone-200">
-					<h3 class="text-xl font-semibold">Current teaching</h3>
-					<ul class="mt-4 space-y-2">
-						{teaching.map((item) => (
-							<li class="rounded-xl bg-stone-100/70 p-3 ring-1 ring-stone-200">
-								<div class="flex flex-wrap items-center gap-2">
-									<p class="text-base font-semibold text-[#0f2c24]">{item.course}</p>
-									<span class="pill bg-white text-emerald-900">Term: {item.term}</span>
-								</div>
-								<p class="mt-1 text-sm leading-6 text-[#2c3a40]">{item.note}</p>
 							</li>
 						))}
 					</ul>
-				</article>
-
-				<article class="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm ring-1 ring-stone-200">
-					<div class="flex items-center justify-between gap-3">
-						<h3 class="text-xl font-semibold">Graduate students & mentees</h3>
-						<a class="pill" href="/students/">Full archive</a>
-					</div>
-					{currentAdvisees.length === 0 ? (
-						<p class="mt-4 rounded-xl bg-stone-100/70 p-4 text-sm text-[#2c3a40] ring-1 ring-stone-200">No current students listed.</p>
-					) : (
-						<ul class="mt-4 space-y-4">
-							{currentAdvisees.map((advisee) => (
-								<li class="flex gap-3 rounded-xl bg-stone-100/70 p-4 ring-1 ring-stone-200">
-									<span class="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-emerald-700"></span>
-									<div class="space-y-1">
-										<p class="text-base font-semibold text-[#0f2c24]">
-											{advisee.name}
-											<span class="ml-2 rounded-full bg-white px-2 py-0.5 text-xs font-semibold text-emerald-900 ring-1 ring-stone-200">
-												{advisee.degree}
-											</span>
-										</p>
-										<p class="text-sm text-[#2c3a40]">{advisee.note}</p>
-									</div>
-								</li>
-							))}
-						</ul>
-					)}
-					<p class="mt-4 text-sm text-[#2c3a40]">
-						View full advising history, including alumni, in the <a href="/students/">student archive</a>.
-					</p>
-				</article>
-			</div>
-		</section>
-
-		<section id="qsparc" class="rounded-3xl border border-stone-200 bg-white/90 p-8 shadow-sm ring-1 ring-stone-200">
-			<div class="space-y-3">
-				<p class="text-xs uppercase tracking-[0.2em] text-emerald-700">Laboratory</p>
-				<h2 class="text-3xl font-semibold leading-tight">QSPARC Lab</h2>
-			</div>
-			<p class="mt-4 text-[15px] leading-7 text-[#2c3a40]">
-				QSPARC is a research initiative at Tulane University focused on advancing secure communication systems through algebraic
-				methods, coding theory, and experimentation. Current work includes post-quantum cryptographic protocols, algebraic and
-				geometric constructions of error-correcting codes, and hands-on testing with SDR radios. The lab is a collaborative hub for
-				student research and interdisciplinary exploration.
-			</p>
-		</section>
-
-		<section id="editorial" class="space-y-5">
-			<div class="flex items-baseline justify-between gap-4">
-				<div>
-					<p class="text-xs uppercase tracking-[0.2em] text-emerald-700">Editorial work</p>
-					<h2 class="text-3xl font-semibold leading-tight">Professional service</h2>
 				</div>
 			</div>
-			<ul class="grid gap-3 md:grid-cols-2">
-				{editorialWork.map((item) => (
-					<li class="rounded-2xl border border-stone-200 bg-white p-4 shadow-sm ring-1 ring-stone-200">
-						<a class="text-sm font-semibold text-[#0f2c24] no-underline" href={item.href} target="_blank" rel="noreferrer">
-							{item.label}
-						</a>
+		</section>
+
+		<section class="space-y-4">
+			<div class="flex items-end justify-between gap-3 border-b border-slate-200 pb-2">
+				<div>
+					<p class="section-title">Research</p>
+					<h2 class="text-2xl sm:text-3xl">Themes</h2>
+				</div>
+				<a class="pill" href="/research/">Research page</a>
+			</div>
+			<ul class="space-y-3">
+				{researchThemes.map((theme) => (
+					<li class="border-b border-slate-200 pb-3">
+						<h3 class="text-lg">{theme.title}</h3>
+						<p class="mt-1 text-sm text-slate-700">{theme.summary}</p>
 					</li>
 				))}
 			</ul>
 		</section>
 
-		<section id="news" class="space-y-5">
-			<div class="flex items-baseline justify-between gap-4">
+		<section class="space-y-4">
+			<div class="flex items-end justify-between gap-3 border-b border-slate-200 pb-2">
 				<div>
-					<p class="text-xs uppercase tracking-[0.2em] text-emerald-700">News</p>
-					<h2 class="text-3xl font-semibold leading-tight">Highlights</h2>
+					<p class="section-title">Publications</p>
+					<h2 class="text-2xl sm:text-3xl">Recent Papers</h2>
 				</div>
+				<a class="pill" href="/publications/">Full list</a>
 			</div>
-			<ul class="space-y-4">
-				{newsItems.map((item) => (
-					<li class="rounded-2xl border border-stone-200 bg-white p-4 shadow-sm ring-1 ring-stone-200">
-						<div class="flex flex-wrap items-start gap-3">
-							<span class="pill bg-stone-100/70 text-emerald-900">{item.year}</span>
-							<p class="text-sm leading-6 text-[#2c3a40]">{item.detail}</p>
+
+			<ol class="space-y-4">
+				{recentPublications.map((entry) => (
+					<li class="border-b border-slate-200 pb-4">
+						<p class="text-sm leading-7 text-slate-900">
+							{entry.data.authors ? `${entry.data.authors}. ` : ""}
+							<strong>{entry.data.title}.</strong>
+							{entry.data.venue ? ` ${entry.data.venue}.` : ""}
+						</p>
+						<div class="mt-2 flex flex-wrap gap-2">
+							{publicationLinks(entry).map((link) => (
+								<a
+									class="pill"
+									href={link.href}
+									target={isExternalLink(link.href) ? "_blank" : undefined}
+									rel={isExternalLink(link.href) ? "noreferrer" : undefined}
+								>
+									{link.label}
+								</a>
+							))}
 						</div>
 					</li>
 				))}
-			</ul>
+			</ol>
 		</section>
 
-		<section id="contact" class="rounded-3xl border border-stone-200 bg-white/90 p-8 shadow-sm ring-1 ring-stone-200">
-			<div class="space-y-4">
-				<p class="text-xs uppercase tracking-[0.2em] text-emerald-700">Contact</p>
-				<h2 class="text-3xl font-semibold leading-tight">Get in touch</h2>
-				<div class="grid gap-6 md:grid-cols-2">
-					<div class="space-y-3 text-[15px] leading-7 text-[#2c3a40]">
-						<p>Email: <a href={`mailto:${site.email}`}>{site.email}</a></p>
-						<p>Office: Gibson Hall, Room 319</p>
-						<p>Address: 6283 St. Charles Ave, New Orleans, LA 70118, USA</p>
-					</div>
-					<div class="rounded-2xl bg-stone-100/70 p-5 text-sm text-[#2c3a40] ring-1 ring-stone-200">
-						<p class="font-semibold text-[#0f2c24]">Office hours & meetings</p>
-						<p class="mt-2 leading-6">
-							Prospective students and collaborators are welcome to reach out by email to arrange a meeting. For current
-							students, course logistics and materials are shared through Canvas.
-						</p>
-					</div>
-				</div>
+		<section class="grid gap-10 border-t border-slate-200 pt-8 md:grid-cols-2">
+			<div class="space-y-3">
+				<p class="section-title">Teaching and Mentorship</p>
+				<h2 class="text-2xl sm:text-3xl">Current Students</h2>
+				{currentStudents.length === 0 ? (
+					<p class="text-sm text-slate-600">No current students listed.</p>
+				) : (
+					<ul class="space-y-2">
+						{currentStudents.slice(0, 6).map((student) => (
+							<li class="border-b border-slate-200 pb-2 text-sm text-slate-700">
+								<span class="font-semibold text-slate-900">{student.name}</span>
+								<span> · {student.degree}</span>
+								<span> · {student.years}</span>
+							</li>
+						))}
+					</ul>
+				)}
+				<a class="pill" href="/students/">Student archive</a>
+			</div>
+
+			<div class="space-y-3">
+				<p class="section-title">Professional Activities</p>
+				<h2 class="text-2xl sm:text-3xl">Recent Highlights</h2>
+				<ul class="space-y-2">
+					{recentHighlights.map((item) => (
+						<li class="border-b border-slate-200 pb-2 text-sm text-slate-700">
+							<span class="font-semibold text-slate-900">{item.year}:</span> {item.detail}
+						</li>
+					))}
+				</ul>
+				<a class="pill" href="/work/">Professional activities page</a>
 			</div>
 		</section>
 	</div>

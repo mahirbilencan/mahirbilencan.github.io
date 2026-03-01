@@ -1,113 +1,114 @@
 ---
 import SiteLayout from "../../layouts/SiteLayout.astro";
-import { getCollection } from "astro:content";
 
-async function safeCollection(name) {
-	try {
-		return await getCollection(name);
-	} catch {
-		return [];
-	}
-}
+const editorialRoles = [
+	{ title: "Semigroup Forum", role: "Editorial board service", link: "https://www.springer.com/journal/233" },
+	{
+		title: "Journal of Gökova Geometry-Topology",
+		role: "Editorial board service",
+		link: "https://www.jggt-online.com/",
+	},
+	{ title: "MathSciNet and zbMATH", role: "Regular reviewer", link: "https://mathscinet.ams.org/" },
+] as const;
 
-let projects = (await safeCollection("projects")).filter((e) => !e.data.draft);
-projects.sort((a, b) => (b.data.date?.valueOf?.() ?? 0) - (a.data.date?.valueOf?.() ?? 0));
-const featuredProjects = (projects.filter((p) => p.data.selected).length ? projects.filter((p) => p.data.selected) : projects).slice(0, 3);
+const organizedEvents = [
+	{
+		year: "2025",
+		title: "Coding Theory and Cryptography (AMS Sectional Meeting)",
+		location: "New Orleans, LA",
+		note: "Co-organized with Henry Chimal Dzul and Emily McMillon.",
+	},
+	{
+		year: "2024",
+		title: "Generalized Numerical Semigroups (Thematic Session)",
+		location: "Conference on Theoretical and Computational Algebra, Aveiro, Portugal",
+		note: "Session organizer.",
+	},
+	{
+		year: "2023",
+		title: "Southern Regional Algebra Conference",
+		location: "Tulane University",
+		note: "Co-organized with Kalina Mincheva and Naufil Sakran.",
+	},
+] as const;
 
-let publications = (await safeCollection("publications")).filter((e) => !e.data.draft);
-publications.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
-const featuredPubs = (publications.filter((p) => p.data.selected).length ? publications.filter((p) => p.data.selected) : publications).slice(0, 3);
-
-let talks = (await safeCollection("talks")).filter((e) => !e.data.draft);
-talks.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
-const featuredTalks = (talks.filter((t) => t.data.selected).length ? talks.filter((t) => t.data.selected) : talks).slice(0, 3);
-
-let teaching = (await safeCollection("teaching")).filter((e) => !e.data.draft);
-teaching.sort((a, b) => String(b.data.term).localeCompare(String(a.data.term)));
-const featuredTeaching = teaching.slice(0, 3);
+const recentActivities = [
+	{
+		year: "2025",
+		detail:
+			"Visited IIT Bombay for the conference on Combinatorics, Geometry, and Representation Theory at ICTS.",
+	},
+	{ year: "2025", detail: "Recipient of Tulane's Provost's Proof of Concept award." },
+	{
+		year: "2024",
+		detail: "Fulbright U.S. Scholar to Portugal (host: Universidade Nova de Lisboa).",
+	},
+	{
+		year: "2023",
+		detail: "Research visits to IIT Bombay and the Okinawa Institute of Science and Technology.",
+	},
+] as const;
 ---
 
-<SiteLayout title="Work" description="Projects, publications, talks, and teaching.">
+<SiteLayout title="Professional Activities" description="Editorial service, conference organization, and professional highlights.">
 	<div class="space-y-10">
-		<section class="max-w-2xl">
-			<h1>Work</h1>
-			<p class="mt-4 text-base leading-7 text-zinc-800">
-				A single place to browse projects, publications, talks, and teaching.
+		<section class="space-y-4 border-b border-slate-200 pb-6">
+			<p class="section-title">Professional Activities</p>
+			<h1 class="text-3xl leading-tight sm:text-5xl">Service, Organization, and Community Work</h1>
+			<p class="max-w-3xl text-[15px] leading-7 text-slate-700">
+				Editorial service, conference organization, and selected professional highlights.
 			</p>
+			<div class="flex flex-wrap gap-2">
+				<a class="pill" href="/publications/">Publications</a>
+				<a class="pill" href="/CV.pdf">CV</a>
+			</div>
 		</section>
 
-		<div class="grid gap-6 lg:grid-cols-2">
-			<section class="rounded-2xl border border-zinc-200/80 bg-white p-6 shadow-sm">
-				<div class="prose max-w-none">
-					<h2>Projects</h2>
-					<ul>
-						{featuredProjects.map((p) => (
-							<li>
-								<a href={`/projects/${p.slug}/`}>{p.data.title}</a>
-								{p.data.summary ? <div class="text-zinc-700">{p.data.summary}</div> : null}
-							</li>
-						))}
-					</ul>
-					<p><a href="/projects/">Browse all projects</a></p>
-				</div>
-			</section>
+		<section class="space-y-4">
+			<div class="border-b border-slate-200 pb-2">
+				<h2 class="text-2xl sm:text-3xl">Editorial Service</h2>
+			</div>
+			<ul class="space-y-3">
+				{editorialRoles.map((item) => (
+					<li class="border-b border-slate-200 pb-3">
+						<p class="font-semibold text-slate-900">{item.title}</p>
+						<p class="text-sm text-slate-600">{item.role}</p>
+						<a class="mt-1 inline-flex text-sm no-underline hover:underline" href={item.link} target="_blank" rel="noreferrer">
+							Visit
+						</a>
+					</li>
+				))}
+			</ul>
+		</section>
 
-			<section class="rounded-2xl border border-zinc-200/80 bg-white p-6 shadow-sm">
-				<div class="prose max-w-none">
-					<h2>Publications</h2>
-					<ul>
-						{featuredPubs.map((p) => (
-							<li>
-								<a href={`/publications/${p.slug}/`}>{p.data.title}</a>
-								{p.data.authors || p.data.venue ? (
-									<div class="text-zinc-700">
-										{p.data.authors ? `${p.data.authors}${p.data.venue ? " • " : ""}` : ""}
-										{p.data.venue ?? ""}
-									</div>
-								) : null}
-							</li>
-						))}
-					</ul>
-					<p><a href="/publications/">Browse all publications</a></p>
-				</div>
-			</section>
+		<section class="space-y-4">
+			<div class="border-b border-slate-200 pb-2">
+				<h2 class="text-2xl sm:text-3xl">Conference Organization</h2>
+			</div>
+			<ul class="space-y-3">
+				{organizedEvents.map((event) => (
+					<li class="border-b border-slate-200 pb-3 text-sm text-slate-700">
+						<p class="font-semibold text-slate-900">
+							{event.year} — {event.title}
+						</p>
+						<p>{event.location}</p>
+						<p>{event.note}</p>
+					</li>
+				))}
+			</ul>
+		</section>
 
-			<section class="rounded-2xl border border-zinc-200/80 bg-white p-6 shadow-sm">
-				<div class="prose max-w-none">
-					<h2>Talks</h2>
-					<ul>
-						{featuredTalks.map((t) => (
-							<li>
-								<a href={`/talks/${t.slug}/`}>{t.data.title}</a>
-								{t.data.event || t.data.location ? (
-									<div class="text-zinc-700">
-										{t.data.event ? `${t.data.event}${t.data.location ? " • " : ""}` : ""}
-										{t.data.location ?? ""}
-									</div>
-								) : null}
-							</li>
-						))}
-					</ul>
-					<p><a href="/talks/">Browse all talks</a></p>
-				</div>
-			</section>
-
-			<section class="rounded-2xl border border-zinc-200/80 bg-white p-6 shadow-sm">
-				<div class="prose max-w-none">
-					<h2>Teaching</h2>
-					<ul>
-						{featuredTeaching.map((c) => (
-							<li>
-								<a href={`/teaching/${c.slug}/`}>{c.data.course}</a>
-								<div class="text-zinc-700">
-									{c.data.term}{c.data.institution ? ` • ${c.data.institution}` : ""}{c.data.role ? ` • ${c.data.role}` : ""}
-								</div>
-							</li>
-						))}
-					</ul>
-					<p><a href="/teaching/">Browse all teaching</a></p>
-				</div>
-			</section>
-		</div>
+		<section class="space-y-4">
+			<div class="border-b border-slate-200 pb-2">
+				<h2 class="text-2xl sm:text-3xl">Selected Highlights</h2>
+			</div>
+			<ul class="space-y-3">
+				{recentActivities.map((item) => (
+					<li class="border-b border-slate-200 pb-3 text-sm text-slate-700">
+						<span class="font-semibold text-slate-900">{item.year}:</span> {item.detail}
+					</li>
+				))}
+			</ul>
+		</section>
 	</div>
 </SiteLayout>

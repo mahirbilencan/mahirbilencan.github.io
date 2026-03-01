@@ -4,35 +4,33 @@ import { site } from "../../lib/site";
 ---
 
 <SiteLayout title="About">
-	<section class="mt-2">
-		<h1>About</h1>
-		<div class="mt-6 max-w-3xl rounded-2xl border border-stone-200 bg-white p-6 shadow-sm ring-1 ring-stone-200">
-			<div class="prose max-w-none">
-				<p>
-					I am a professor of mathematics at {site.affiliation}. My work spans algebraic groups and monoids, representation theory,
-					algebraic geometry, and the mathematics of secure communication. I am interested in how algebraic structure clarifies
-					complex systems—whether in geometry, number theory, or coding theory.
-				</p>
+	<section class="space-y-6">
+		<div class="border-b border-slate-200 pb-4">
+			<h1>About</h1>
+		</div>
 
-				<h2>Research</h2>
-				<p>
-					Recent projects include geometric approaches to representation theory, classification problems for algebraic monoids, and
-					algebraic constructions for error-correcting codes. For additional details, see the <a href="/research/">Research</a> page
-					or my <a href="/CV.pdf">CV</a>.
-				</p>
+		<div class="prose max-w-3xl">
+			<p>
+				I am a professor of mathematics at {site.affiliation}. My work spans algebraic groups and monoids,
+				representation theory, algebraic geometry, and the mathematics of secure communication.
+			</p>
 
-				<h2>Teaching & mentorship</h2>
-				<p>
-					I teach undergraduate and graduate courses in analysis, algebra, and geometry, and I regularly supervise PhD students and
-					undergraduate researchers. Current teaching information is posted on Canvas for enrolled students; a summary of recent
-					courses lives on the <a href="/teaching/">Teaching</a> page.
-				</p>
+			<h2>Research</h2>
+			<p>
+				Recent projects include geometric approaches to representation theory, classification problems for algebraic
+				monoids, and algebraic constructions for error-correcting codes. For more details, see
+				<a href="/research/">Research</a> and <a href="/publications/">Publications</a>.
+			</p>
 
-				<h2>Contact</h2>
-				<p>Email: <a href={`mailto:${site.email}`}>{site.email}</a></p>
-				<p>Office: Gibson Hall, Room 319 — New Orleans, LA</p>
-				<p>Address: 6283 St. Charles Ave, New Orleans, LA 70118, USA</p>
-			</div>
+			<h2>Teaching and Mentorship</h2>
+			<p>
+				I teach undergraduate and graduate courses in algebra, geometry, and analysis, and I supervise graduate and
+				undergraduate researchers. Teaching history is listed on the <a href="/teaching/">Teaching</a> page.
+			</p>
+
+			<h2>Contact</h2>
+			<p>Email: <a href={`mailto:${site.email}`}>{site.email}</a></p>
+			<p>Office: Gibson Hall, Room 319 — New Orleans, LA</p>
 		</div>
 	</section>
 </SiteLayout>

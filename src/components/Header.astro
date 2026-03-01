@@ -5,6 +5,10 @@ const pathname = Astro.url.pathname;
 
 const nav = [
 	{ href: "/", label: "Home" },
+	{ href: "/publications/", label: "Publications" },
+	{ href: "/work/", label: "Professional Activities" },
+	{ href: "/research/", label: "Research" },
+	{ href: "/teaching/", label: "Teaching" },
 	{ href: "/students/", label: "Students" },
 	{ href: "/CV.pdf", label: "CV (PDF)" },
 	{ href: "/contact/", label: "Contact" },
@@ -18,35 +22,37 @@ function isActive(href: string) {
 
 <a
 	href="#content"
-	class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-white focus:px-3 focus:py-2 focus:text-sm focus:font-medium focus:text-zinc-900 focus:shadow focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 focus:ring-offset-zinc-50"
+	class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-sm focus:bg-white focus:px-3 focus:py-2 focus:text-sm focus:font-medium focus:text-zinc-900 focus:shadow focus:outline-none focus:ring-2 focus:ring-[#133f87]/40 focus:ring-offset-2 focus:ring-offset-white"
 >
 	Skip to content
 </a>
 
-<header class="sticky top-0 z-40 border-b border-stone-200/90 bg-white/75 backdrop-blur supports-[backdrop-filter]:bg-white/60">
-	<div class="container flex items-center justify-between gap-6 py-4">
+<header class="sticky top-0 z-40 border-b border-slate-200 bg-white/95">
+	<div class="container flex flex-wrap items-center justify-between gap-3 py-2.5 md:py-3">
 		<a href="/" class="flex items-center gap-3 no-underline">
-			<div class="h-10 w-10 rounded-xl bg-emerald-900 text-white shadow-sm ring-1 ring-emerald-800/60 flex items-center justify-center text-sm font-semibold">
+			<div class="flex h-10 w-10 items-center justify-center border border-slate-300 bg-slate-50 text-sm font-semibold text-[#133f87]">
 				MC
 			</div>
 			<div>
-				<p class="text-base font-semibold text-[#0f2c24] leading-tight">{site.name}</p>
-				<p class="text-xs uppercase tracking-[0.16em] text-emerald-700">Mathematics</p>
+				<p class="text-sm font-semibold leading-tight text-[#111827] sm:text-base">{site.name}</p>
+				<p class="text-xs uppercase tracking-[0.2em] text-slate-600">Mathematics</p>
 			</div>
 		</a>
 
-		<nav class="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm" aria-label="Primary navigation">
-			{nav.map((item) => (
-				<a
-					href={item.href}
-					class:list={[
-						"no-underline decoration-stone-300 underline-offset-4 hover:underline",
-						isActive(item.href) ? "font-semibold text-[#0f2c24] decoration-stone-400" : "text-[#2c3a40]",
-					]}
-				>
-					{item.label}
-				</a>
-			))}
+		<nav class="order-3 w-full overflow-x-auto pb-1 md:order-none md:w-auto md:overflow-visible md:pb-0" aria-label="Primary navigation">
+			<div class="flex min-w-max items-center gap-x-5 gap-y-2 text-sm md:min-w-0 md:flex-wrap">
+				{nav.map((item) => (
+					<a
+						href={item.href}
+						class:list={[
+							"nav-link shrink-0 py-1 no-underline underline-offset-4 transition-colors",
+							isActive(item.href) ? "is-active text-[#133f87]" : "text-slate-700 hover:text-[#133f87]",
+						]}
+					>
+						{item.label}
+					</a>
+				))}
+			</div>
 		</nav>
 	</div>
 </header>

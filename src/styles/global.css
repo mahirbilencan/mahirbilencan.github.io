@@ -3,6 +3,13 @@
 @layer base {
   :root {
     color-scheme: light;
+    --page-bg: #ffffff;
+    --ink: #111827;
+    --ink-soft: #374151;
+    --line: #dbe2ea;
+    --line-strong: #c7d2de;
+    --brand: #133f87;
+    --brand-soft: #e9f1ff;
   }
 
   html {
@@ -11,30 +18,34 @@
 
   body {
     font-family: "Source Sans Pro", "Avenir Next", "Segoe UI", "Helvetica Neue", sans-serif;
-    @apply bg-[#f6f4f1] text-[#1a2024] antialiased;
+    background: #ffffff;
+    @apply text-[var(--ink)] antialiased;
   }
 
   ::selection {
-    @apply bg-stone-300 text-[#0f2c24];
+    background: #d8e8ff;
+    color: #0f1f38;
   }
 
   a {
-    @apply text-[#0f2c24] underline decoration-stone-300/80 underline-offset-4;
+    color: var(--brand);
+    @apply underline decoration-[#bfd1ee] underline-offset-4;
   }
 
   a:hover {
-    @apply text-emerald-900 decoration-stone-400/90;
+    color: #0f2f64;
+    @apply decoration-[#96b6e8];
   }
 
   a:focus-visible {
-    @apply outline-none ring-2 ring-emerald-700 ring-offset-2 ring-offset-[#f6f4f1];
+    @apply outline-none ring-2 ring-[#133f87]/35 ring-offset-2 ring-offset-white;
   }
 
   h1,
   h2,
   h3 {
-    font-family: "Cormorant Garamond", "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Garamond, serif;
-    @apply tracking-tight text-[#0f2c24];
+    font-family: "Libre Baskerville", "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    @apply tracking-tight text-[#0f172a];
   }
 
   h1 {
@@ -50,38 +61,67 @@
   }
 
   p {
-    @apply leading-7 text-[#2c3a40];
+    @apply leading-7 text-[var(--ink-soft)];
   }
 
   hr {
-    @apply border-stone-200;
+    border-color: var(--line);
   }
 
   code {
-    @apply rounded bg-[#ece9e3] px-1 py-0.5 text-[0.9em] text-[#1a2024];
+    @apply rounded bg-[#eff3f8] px-1 py-0.5 text-[0.9em] text-[#0f172a];
   }
 }
 
 @layer components {
+  .container {
+    @apply mx-auto w-full max-w-7xl px-4 md:px-6;
+  }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center rounded-md bg-emerald-900 px-4 py-2 text-sm font-semibold text-white no-underline shadow-sm transition hover:bg-emerald-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-700 focus-visible:ring-offset-2 focus-visible:ring-offset-[#f6f4f1];
+    @apply inline-flex items-center justify-center rounded-sm bg-[#133f87] px-4 py-2 text-sm font-semibold text-white no-underline transition hover:bg-[#0f326d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#133f87]/35 focus-visible:ring-offset-2 focus-visible:ring-offset-white;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center rounded-md border border-stone-200 bg-white px-4 py-2 text-sm font-semibold text-[#1a2024] no-underline shadow-sm transition hover:border-stone-300 hover:bg-stone-100/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-700 focus-visible:ring-offset-2 focus-visible:ring-offset-[#f6f4f1];
+    @apply inline-flex items-center justify-center rounded-sm border border-[var(--line-strong)] bg-white px-4 py-2 text-sm font-semibold text-[#0f172a] no-underline transition hover:border-[#a8b8cb] hover:bg-[#f6f9ff] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#133f87]/35 focus-visible:ring-offset-2 focus-visible:ring-offset-white;
   }
 
   .pill {
-    @apply inline-flex items-center rounded-full border border-stone-200 bg-white px-2.5 py-1 text-xs font-semibold text-[#1a2024] no-underline transition hover:border-stone-300 hover:bg-stone-100/70;
+    @apply inline-flex items-center rounded-sm border border-[var(--line-strong)] bg-white px-2.5 py-1 text-xs font-semibold text-[#0f172a] no-underline transition hover:border-[#a8b8cb] hover:bg-[#f6f9ff];
   }
 
-  .container {
-    @apply mx-auto w-full max-w-6xl px-4;
+  .surface {
+    @apply rounded-sm border border-[var(--line)] bg-white p-6;
+  }
+
+  .section-title {
+    @apply text-xs font-semibold uppercase tracking-[0.22em] text-[#3f5a7a];
+  }
+
+  .nav-link {
+    position: relative;
+    padding-bottom: 0.25rem;
+    text-decoration: none;
+  }
+
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -0.15rem;
+    height: 2px;
+    border-radius: 9999px;
+    background: transparent;
+    transition: background-color 160ms ease;
+  }
+
+  .nav-link.is-active::after {
+    background: #133f87;
   }
 
   .prose {
-    @apply text-[16px] leading-7 text-[#2c3a40];
+    @apply text-[16px] leading-7 text-[var(--ink-soft)];
   }
 
   .prose > * + * {
@@ -101,7 +141,7 @@
   }
 
   .prose blockquote {
-    @apply border-l-2 border-zinc-300 pl-4 text-zinc-700;
+    @apply border-l-2 border-slate-300 pl-4 text-slate-700;
   }
 
   :where(.prose) table {
@@ -109,10 +149,10 @@
   }
 
   :where(.prose) th {
-    @apply border border-zinc-200 bg-zinc-50 px-3 py-2 text-left font-semibold text-zinc-900;
+    @apply border border-slate-200 bg-slate-50 px-3 py-2 text-left font-semibold text-slate-900;
   }
 
   :where(.prose) td {
-    @apply border border-zinc-200 px-3 py-2 align-top;
+    @apply border border-slate-200 px-3 py-2 align-top;
   }
 }

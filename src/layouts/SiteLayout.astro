@@ -1,7 +1,6 @@
 ---
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import ProfileSidebar from "../components/ProfileSidebar.astro";
 import "../styles/global.css";
 import { site } from "../lib/site";
 
@@ -36,12 +35,9 @@ const metaDescription = description ?? site.description;
 	</head>
 	<body class="flex min-h-screen flex-col">
 		<Header />
-		<main id="content" class="container flex-1 pb-20 pt-10 lg:pt-12">
-			<div class="grid gap-10 lg:grid-cols-[18rem_minmax(0,1fr)] lg:items-start lg:gap-12">
-				<ProfileSidebar />
-				<div class="min-w-0">
-					<slot />
-				</div>
+		<main id="content" class="container flex-1 pb-20 pt-7 sm:pb-24 sm:pt-10 lg:pt-12">
+			<div class="mx-auto w-full max-w-[68rem]">
+				<slot />
 			</div>
 		</main>
 		<Footer />

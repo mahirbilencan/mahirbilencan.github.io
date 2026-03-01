@@ -10,76 +10,63 @@ try {
 } catch {
 	entries = [];
 }
-entries = entries.filter((e) => !e.data.draft);
+
+entries = entries.filter((entry) => !entry.data.draft);
 entries.sort((a, b) => (b.data.date?.valueOf?.() ?? 0) - (a.data.date?.valueOf?.() ?? 0));
 
 const allTags = Array.from(
-	new Set(entries.flatMap((e) => e.data.tags ?? []).map((t) => String(t).trim()).filter(Boolean))
+	new Set(entries.flatMap((entry) => entry.data.tags ?? []).map((item) => String(item).trim()).filter(Boolean))
 ).sort((a, b) => a.localeCompare(b));
 
-const filtered = tag ? entries.filter((e) => (e.data.tags ?? []).includes(tag)) : entries;
+const filtered = tag ? entries.filter((entry) => (entry.data.tags ?? []).includes(tag)) : entries;
 ---
 
-<SiteLayout title="Projects" description="Selected technical write-ups and code-based work.">
-	<section class="mt-2">
-		<h1>Projects</h1>
-		<p class="mt-4 max-w-prose text-zinc-800">
-			Technical write-ups and code-based work. Use tags to quickly filter.
-		</p>
+<SiteLayout title="Projects" description="Selected technical and collaborative projects.">
+	<section class="space-y-6">
+		<div class="border-b border-slate-200 pb-4">
+			<h1>Projects</h1>
+			<p class="mt-3 max-w-3xl text-sm text-slate-700">Technical write-ups and collaborative project pages.</p>
+		</div>
 
-		<div class="mt-6 flex flex-wrap items-center gap-2">
-			<a class={tag === "" ? "pill border-sky-300 bg-sky-50" : "pill"} href="/projects/">All</a>
-			{allTags.map((t) => (
-				<a class={tag === t ? "pill border-sky-300 bg-sky-50" : "pill"} href={`/projects/?tag=${encodeURIComponent(t)}`}>{t}</a>
+		<div class="flex flex-wrap gap-2">
+			<a class={tag === "" ? "pill border-[#133f87]" : "pill"} href="/projects/">All</a>
+			{allTags.map((item) => (
+				<a class={tag === item ? "pill border-[#133f87]" : "pill"} href={`/projects/?tag=${encodeURIComponent(item)}`}>{item}</a>
 			))}
 		</div>
 
-		<div class="mt-8">
-			{filtered.length === 0 ? (
-				<p class="text-zinc-700">
-					No projects match this filter yet.
-				</p>
-			) : (
-				<ol class="space-y-6">
-					{filtered.map((e) => (
-						<li class="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
-							<div class="flex flex-wrap items-baseline justify-between gap-3">
-								<h2 class="text-lg font-semibold leading-6">
-									<a class="no-underline hover:underline" href={`/projects/${e.slug}/`}>{e.data.title}</a>
-								</h2>
-								{e.data.date ? (
-									<time class="text-xs font-medium text-zinc-500" datetime={e.data.date.toISOString()}>
-										{e.data.date.toLocaleDateString(undefined, { year: "numeric", month: "short" })}
-									</time>
-								) : null}
-							</div>
-
-							<p class="mt-2 text-sm leading-6 text-zinc-700">{e.data.summary}</p>
-
-							{e.data.tags?.length ? (
-								<div class="mt-4 flex flex-wrap gap-2">
-									{e.data.tags.map((t) => (
-										<a class="pill" href={`/projects/?tag=${encodeURIComponent(t)}`}>{t}</a>
-									))}
-								</div>
+		{filtered.length === 0 ? (
+			<p class="text-sm text-slate-600">No projects match this filter.</p>
+		) : (
+			<ol class="space-y-4">
+				{filtered.map((entry) => (
+					<li class="border-b border-slate-200 pb-4">
+						<div class="flex flex-wrap items-baseline justify-between gap-3">
+							<h2 class="text-lg">
+								<a class="no-underline hover:underline" href={`/projects/${entry.slug}/`}>{entry.data.title}</a>
+							</h2>
+							{entry.data.date ? (
+								<time class="text-xs text-slate-500" datetime={entry.data.date.toISOString()}>
+									{entry.data.date.toLocaleDateString(undefined, { year: "numeric", month: "short" })}
+								</time>
 							) : null}
-
-							<div class="mt-5 flex flex-wrap gap-3 text-sm">
-								<a class="no-underline hover:underline" href={`/projects/${e.slug}/`}>Read</a>
-								{e.data.links?.code ? (
-									<a class="no-underline hover:underline" href={e.data.links.code} target="_blank" rel="noreferrer">Code</a>
-								) : null}
-								{e.data.links?.paper ? (
-									<a class="no-underline hover:underline" href={e.data.links.paper} target="_blank" rel="noreferrer">Paper</a>
-								) : null}
-								{e.data.links?.demo ? (
-									<a class="no-underline hover:underline" href={e.data.links.demo} target="_blank" rel="noreferrer">Demo</a>
-								) : null}
-							</div>
-						</li>
-					))}
-				</ol>
-			)}
-		</div>
+						</div>
+						<p class="mt-2 text-sm text-slate-700">{entry.data.summary}</p>
+						<div class="mt-2 flex flex-wrap gap-2 text-sm">
+							<a class="pill" href={`/projects/${entry.slug}/`}>Read</a>
+							{entry.data.links?.code ? (
+								<a class="pill" href={entry.data.links.code} target="_blank" rel="noreferrer">Code</a>
+							) : null}
+							{entry.data.links?.paper ? (
+								<a class="pill" href={entry.data.links.paper} target="_blank" rel="noreferrer">Paper</a>
+							) : null}
+							{entry.data.links?.demo ? (
+								<a class="pill" href={entry.data.links.demo} target="_blank" rel="noreferrer">Demo</a>
+							) : null}
+						</div>
+					</li>
+				))}
+			</ol>
+		)}
 	</section>
 </SiteLayout>

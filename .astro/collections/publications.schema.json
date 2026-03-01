@@ -8,6 +8,21 @@
           "type": "boolean",
           "default": false
         },
+        "order": {
+          "type": "integer",
+          "exclusiveMinimum": 0
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "submitted",
+            "journal",
+            "conference",
+            "preprint",
+            "book"
+          ],
+          "default": "journal"
+        },
         "title": {
           "type": "string"
         },
@@ -36,10 +51,14 @@
         "status": {
           "type": "string",
           "enum": [
-            "preprint",
+            "submitted",
             "published",
-            "in-prep"
-          ]
+            "preprint"
+          ],
+          "default": "published"
+        },
+        "abstract": {
+          "type": "string"
         },
         "selected": {
           "type": "boolean",
@@ -50,18 +69,21 @@
           "properties": {
             "pdf": {
               "type": "string",
-              "format": "uri"
+              "minLength": 1
             },
             "arxiv": {
               "$ref": "#/definitions/publications/properties/links/properties/pdf"
             },
             "doi": {
-              "type": "string"
+              "$ref": "#/definitions/publications/properties/links/properties/pdf"
             },
             "code": {
               "$ref": "#/definitions/publications/properties/links/properties/pdf"
             },
             "project": {
+              "$ref": "#/definitions/publications/properties/links/properties/pdf"
+            },
+            "website": {
               "$ref": "#/definitions/publications/properties/links/properties/pdf"
             }
           },
