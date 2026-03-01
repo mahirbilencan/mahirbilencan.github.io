@@ -4,8 +4,6 @@ import { Image } from "astro:assets";
 import { site } from "../lib/site";
 import { getCollection } from "astro:content";
 import mahirImage from "../assets/images/Mahir.jpg";
-import pennLogo from "../assets/images/Penn-logo.png";
-import metuLogo from "../assets/images/metu.png";
 
 const researchThemes = [
 	{
@@ -36,14 +34,22 @@ const almaMaters = [
 		degree: "PhD",
 		year: "2006",
 		href: "https://www.math.upenn.edu/",
-		logo: pennLogo,
+		logo: {
+			src: "/images/Penn-logo.png",
+			width: 1760,
+			height: 2000,
+		},
 	},
 	{
 		school: "METU (Turkey)",
 		degree: "BSc",
 		year: "2001",
 		href: "https://math.metu.edu.tr/en/program-overview",
-		logo: metuLogo,
+		logo: {
+			src: "/images/metu.png",
+			width: 640,
+			height: 541,
+		},
 	},
 ] as const;
 
@@ -162,15 +168,13 @@ function isExternalLink(href: string) {
 									target="_blank"
 									rel="noreferrer"
 								>
-										<Image
-											src={item.logo}
+										<img
+											src={item.logo.src}
 											alt={`${item.school} logo`}
 											class="h-9 w-9 object-contain"
 											loading="lazy"
-											width={36}
-											height={36}
-											format="webp"
-											quality={85}
+											width={item.logo.width}
+											height={item.logo.height}
 										/>
 									<span class="text-sm text-slate-700">
 										<span class="block font-semibold text-slate-900">{item.school}</span>
