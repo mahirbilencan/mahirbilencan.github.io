@@ -22,7 +22,6 @@ export const organizations = [
 		name: "Xanadu",
 		role: "Contracting work",
 		href: "https://www.xanadu.ai/",
-		description: "Industry collaboration and contracting work in quantum computing, coding theory, and secure communication.",
 		logo: {
 			src: "/images/Xanadu_Logo_Black.webp",
 			width: 512,
@@ -34,7 +33,6 @@ export const organizations = [
 		name: "QSPARC Labs",
 		role: "Startup",
 		href: "https://www.qsparclabs.com/",
-		description: "Startup work focused on post-quantum cryptography, secure communication, and research-driven cryptographic systems.",
 		logo: {
 			src: "/images/qsparc-logo.png",
 			width: 512,
