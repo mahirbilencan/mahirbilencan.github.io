@@ -1,53 +1,47 @@
 {
-  "$ref": "#/definitions/students",
-  "definitions": {
-    "students": {
-      "type": "object",
-      "properties": {
-        "draft": {
-          "type": "boolean",
-          "default": false
-        },
-        "name": {
-          "type": "string"
-        },
-        "degree": {
-          "type": "string"
-        },
-        "years": {
-          "type": "string"
-        },
-        "status": {
-          "type": "string",
-          "enum": [
-            "current",
-            "alumni"
-          ]
-        },
-        "coAdvisor": {
-          "type": "string"
-        },
-        "thesis": {
-          "type": "string"
-        },
-        "currentPosition": {
-          "type": "string"
-        },
-        "note": {
-          "type": "string"
-        },
-        "$schema": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "name",
-        "degree",
-        "years",
-        "status"
-      ],
-      "additionalProperties": false
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "draft": {
+      "default": false,
+      "type": "boolean"
+    },
+    "name": {
+      "type": "string"
+    },
+    "degree": {
+      "type": "string"
+    },
+    "years": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "current",
+        "alumni"
+      ]
+    },
+    "coAdvisor": {
+      "type": "string"
+    },
+    "thesis": {
+      "type": "string"
+    },
+    "currentPosition": {
+      "type": "string"
+    },
+    "note": {
+      "type": "string"
+    },
+    "$schema": {
+      "type": "string"
     }
   },
-  "$schema": "http://json-schema.org/draft-07/schema#"
+  "required": [
+    "name",
+    "degree",
+    "years",
+    "status"
+  ]
 }

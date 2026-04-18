@@ -11,7 +11,7 @@ export async function getStaticPaths() {
 	}
 
 	entries = entries.filter((entry) => !entry.data.draft);
-	return entries.map((entry) => ({ params: { slug: entry.slug }, props: { entry } }));
+	return entries.map((entry) => ({ params: { slug: entry.id ?? entry.slug }, props: { entry } }));
 }
 
 const { entry } = Astro.props;

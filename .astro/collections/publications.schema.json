@@ -1,104 +1,91 @@
 {
-  "$ref": "#/definitions/publications",
-  "definitions": {
-    "publications": {
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "draft": {
+      "default": false,
+      "type": "boolean"
+    },
+    "order": {
+      "type": "integer",
+      "exclusiveMinimum": 0,
+      "maximum": 9007199254740991
+    },
+    "kind": {
+      "default": "journal",
+      "type": "string",
+      "enum": [
+        "submitted",
+        "journal",
+        "conference",
+        "preprint",
+        "book"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "authors": {
+      "type": "string"
+    },
+    "venue": {
+      "type": "string"
+    },
+    "status": {
+      "default": "published",
+      "type": "string",
+      "enum": [
+        "submitted",
+        "published",
+        "preprint"
+      ]
+    },
+    "abstract": {
+      "type": "string"
+    },
+    "selected": {
+      "default": false,
+      "type": "boolean"
+    },
+    "links": {
       "type": "object",
       "properties": {
-        "draft": {
-          "type": "boolean",
-          "default": false
-        },
-        "order": {
-          "type": "integer",
-          "exclusiveMinimum": 0
-        },
-        "kind": {
+        "pdf": {
           "type": "string",
-          "enum": [
-            "submitted",
-            "journal",
-            "conference",
-            "preprint",
-            "book"
-          ],
-          "default": "journal"
+          "minLength": 1
         },
-        "title": {
-          "type": "string"
-        },
-        "date": {
-          "anyOf": [
-            {
-              "type": "string",
-              "format": "date-time"
-            },
-            {
-              "type": "string",
-              "format": "date"
-            },
-            {
-              "type": "integer",
-              "format": "unix-time"
-            }
-          ]
-        },
-        "authors": {
-          "type": "string"
-        },
-        "venue": {
-          "type": "string"
-        },
-        "status": {
+        "arxiv": {
           "type": "string",
-          "enum": [
-            "submitted",
-            "published",
-            "preprint"
-          ],
-          "default": "published"
+          "minLength": 1
         },
-        "abstract": {
-          "type": "string"
+        "doi": {
+          "type": "string",
+          "minLength": 1
         },
-        "selected": {
-          "type": "boolean",
-          "default": false
+        "code": {
+          "type": "string",
+          "minLength": 1
         },
-        "links": {
-          "type": "object",
-          "properties": {
-            "pdf": {
-              "type": "string",
-              "minLength": 1
-            },
-            "arxiv": {
-              "$ref": "#/definitions/publications/properties/links/properties/pdf"
-            },
-            "doi": {
-              "$ref": "#/definitions/publications/properties/links/properties/pdf"
-            },
-            "code": {
-              "$ref": "#/definitions/publications/properties/links/properties/pdf"
-            },
-            "project": {
-              "$ref": "#/definitions/publications/properties/links/properties/pdf"
-            },
-            "website": {
-              "$ref": "#/definitions/publications/properties/links/properties/pdf"
-            }
-          },
-          "additionalProperties": false
+        "project": {
+          "type": "string",
+          "minLength": 1
         },
-        "$schema": {
-          "type": "string"
+        "website": {
+          "type": "string",
+          "minLength": 1
         }
-      },
-      "required": [
-        "title",
-        "date"
-      ],
-      "additionalProperties": false
+      }
+    },
+    "$schema": {
+      "type": "string"
     }
   },
-  "$schema": "http://json-schema.org/draft-07/schema#"
+  "required": [
+    "title",
+    "date"
+  ]
 }

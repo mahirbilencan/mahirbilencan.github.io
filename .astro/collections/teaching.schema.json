@@ -1,48 +1,42 @@
 {
-  "$ref": "#/definitions/teaching",
-  "definitions": {
-    "teaching": {
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "draft": {
+      "default": false,
+      "type": "boolean"
+    },
+    "course": {
+      "type": "string"
+    },
+    "term": {
+      "type": "string"
+    },
+    "institution": {
+      "type": "string"
+    },
+    "role": {
+      "type": "string"
+    },
+    "links": {
       "type": "object",
       "properties": {
-        "draft": {
-          "type": "boolean",
-          "default": false
+        "syllabus": {
+          "type": "string",
+          "format": "uri"
         },
-        "course": {
-          "type": "string"
-        },
-        "term": {
-          "type": "string"
-        },
-        "institution": {
-          "type": "string"
-        },
-        "role": {
-          "type": "string"
-        },
-        "links": {
-          "type": "object",
-          "properties": {
-            "syllabus": {
-              "type": "string",
-              "format": "uri"
-            },
-            "website": {
-              "$ref": "#/definitions/teaching/properties/links/properties/syllabus"
-            }
-          },
-          "additionalProperties": false
-        },
-        "$schema": {
-          "type": "string"
+        "website": {
+          "type": "string",
+          "format": "uri"
         }
-      },
-      "required": [
-        "course",
-        "term"
-      ],
-      "additionalProperties": false
+      }
+    },
+    "$schema": {
+      "type": "string"
     }
   },
-  "$schema": "http://json-schema.org/draft-07/schema#"
+  "required": [
+    "course",
+    "term"
+  ]
 }

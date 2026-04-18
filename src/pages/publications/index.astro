@@ -63,7 +63,8 @@ function isExternal(href: string) {
 function bibtexKey(entry: (typeof entries)[number]) {
 	const rawAuthor = entry.data.authors?.split(";")[0]?.trim() ?? "can";
 	const surname = rawAuthor.split(/\s+/).slice(-1)[0]?.toLowerCase() ?? "can";
-	const slugPart = entry.slug.replace(/[^a-z0-9]+/gi, "").toLowerCase().slice(0, 12);
+	const entryKey = entry.id ?? entry.slug ?? entry.data.title;
+	const slugPart = entryKey.replace(/[^a-z0-9]+/gi, "").toLowerCase().slice(0, 12);
 	return `${surname}${entry.data.date.getFullYear()}${slugPart}`;
 }
 

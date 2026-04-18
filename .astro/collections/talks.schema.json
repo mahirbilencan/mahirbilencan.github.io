@@ -1,74 +1,56 @@
 {
-  "$ref": "#/definitions/talks",
-  "definitions": {
-    "talks": {
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "draft": {
+      "default": false,
+      "type": "boolean"
+    },
+    "title": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "event": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "talk",
+        "poster",
+        "tutorial",
+        "seminar"
+      ]
+    },
+    "selected": {
+      "default": false,
+      "type": "boolean"
+    },
+    "links": {
       "type": "object",
       "properties": {
-        "draft": {
-          "type": "boolean",
-          "default": false
-        },
-        "title": {
-          "type": "string"
-        },
-        "date": {
-          "anyOf": [
-            {
-              "type": "string",
-              "format": "date-time"
-            },
-            {
-              "type": "string",
-              "format": "date"
-            },
-            {
-              "type": "integer",
-              "format": "unix-time"
-            }
-          ]
-        },
-        "event": {
-          "type": "string"
-        },
-        "location": {
-          "type": "string"
-        },
-        "kind": {
+        "slides": {
           "type": "string",
-          "enum": [
-            "talk",
-            "poster",
-            "tutorial",
-            "seminar"
-          ]
+          "format": "uri"
         },
-        "selected": {
-          "type": "boolean",
-          "default": false
-        },
-        "links": {
-          "type": "object",
-          "properties": {
-            "slides": {
-              "type": "string",
-              "format": "uri"
-            },
-            "video": {
-              "$ref": "#/definitions/talks/properties/links/properties/slides"
-            }
-          },
-          "additionalProperties": false
-        },
-        "$schema": {
-          "type": "string"
+        "video": {
+          "type": "string",
+          "format": "uri"
         }
-      },
-      "required": [
-        "title",
-        "date"
-      ],
-      "additionalProperties": false
+      }
+    },
+    "$schema": {
+      "type": "string"
     }
   },
-  "$schema": "http://json-schema.org/draft-07/schema#"
+  "required": [
+    "title",
+    "date"
+  ]
 }
