@@ -1,5 +1,6 @@
 ---
 import SiteLayout from "../../layouts/SiteLayout.astro";
+import { organizations } from "../../lib/site";
 
 const editorialRoles = [
 	{ title: "Semigroup Forum", role: "Editorial board service", link: "https://www.springer.com/journal/233" },
@@ -62,6 +63,38 @@ const recentActivities = [
 				<a class="pill" href="/publications/">Publications</a>
 				<a class="pill" href="/CV.pdf">CV</a>
 			</div>
+		</section>
+
+		<section class="space-y-4">
+			<div class="border-b border-slate-200 pb-2">
+				<h2 class="text-2xl sm:text-3xl">Industry and Ventures</h2>
+			</div>
+			<ul class="grid gap-3 md:grid-cols-2">
+				{organizations.map((item) => (
+					<li class="border border-slate-200">
+						<a
+							class="flex h-full gap-4 px-4 py-4 no-underline hover:bg-slate-50"
+							href={item.href}
+							target="_blank"
+							rel="noreferrer"
+						>
+							<img
+								src={item.logo.src}
+								alt={`${item.name} logo`}
+								class={`${item.logo.className} shrink-0 self-start object-contain`}
+								loading="lazy"
+								width={item.logo.width}
+								height={item.logo.height}
+							/>
+							<span class="text-sm text-slate-700">
+								<span class="block font-semibold text-slate-900">{item.name}</span>
+								<span class="block">{item.role}</span>
+								<span class="mt-2 block">{item.description}</span>
+							</span>
+						</a>
+					</li>
+				))}
+			</ul>
 		</section>
 
 		<section class="space-y-4">

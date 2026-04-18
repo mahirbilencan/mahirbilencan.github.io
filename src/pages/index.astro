@@ -1,7 +1,7 @@
 ---
 import SiteLayout from "../layouts/SiteLayout.astro";
 import { Image } from "astro:assets";
-import { site } from "../lib/site";
+import { organizations, site } from "../lib/site";
 import { getCollection } from "astro:content";
 import mahirImage from "../assets/images/Mahir.jpg";
 
@@ -191,6 +191,36 @@ function isExternalLink(href: string) {
 									<span class="text-sm text-slate-700">
 										<span class="block font-semibold text-slate-900">{item.school}</span>
 										<span>{item.degree} ({item.year})</span>
+									</span>
+								</a>
+							</li>
+						))}
+					</ul>
+				</div>
+
+				<div>
+					<p class="mb-2 text-sm font-semibold text-slate-900">Industry and Ventures</p>
+					<ul class="grid gap-2 sm:grid-cols-2">
+						{organizations.map((item) => (
+							<li>
+								<a
+									class="flex h-full gap-3 border border-slate-200 px-3 py-3 no-underline hover:bg-slate-50"
+									href={item.href}
+									target="_blank"
+									rel="noreferrer"
+								>
+									<img
+										src={item.logo.src}
+										alt={`${item.name} logo`}
+										class={`${item.logo.className} shrink-0 self-start object-contain`}
+										loading="lazy"
+										width={item.logo.width}
+										height={item.logo.height}
+									/>
+									<span class="text-sm text-slate-700">
+										<span class="block font-semibold text-slate-900">{item.name}</span>
+										<span class="block">{item.role}</span>
+										<span class="mt-1 block text-slate-600">{item.description}</span>
 									</span>
 								</a>
 							</li>
