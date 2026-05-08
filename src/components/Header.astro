@@ -5,12 +5,10 @@ const pathname = Astro.url.pathname;
 
 const nav = [
 	{ href: "/", label: "Home" },
-	{ href: "/publications/", label: "Publications" },
-	{ href: "/work/", label: "Professional Activities" },
 	{ href: "/research/", label: "Research" },
-	{ href: "/teaching/", label: "Teaching" },
-	{ href: "/students/", label: "Students" },
-	{ href: "/CV.pdf", label: "CV (PDF)" },
+	{ href: "/publications/", label: "Publications" },
+	{ href: "/work/", label: "Industry & Service" },
+	{ href: "/CV.pdf", label: "CV" },
 	{ href: "/contact/", label: "Contact" },
 ] as const;
 
@@ -32,7 +30,7 @@ function isActive(href: string) {
 		<a href="/" class="flex items-center no-underline">
 			<div>
 				<p class="text-sm font-semibold leading-tight text-[#111827] sm:text-base">{site.name}</p>
-				<p class="text-xs uppercase tracking-[0.2em] text-slate-600">Mathematics</p>
+				<p class="text-xs uppercase tracking-[0.22em] text-slate-600">Research · Industry</p>
 			</div>
 		</a>
 

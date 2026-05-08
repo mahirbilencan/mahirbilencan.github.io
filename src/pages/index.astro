@@ -7,24 +7,19 @@ import mahirImage from "../assets/images/Mahir.jpg";
 
 const researchThemes = [
 	{
-		title: "Algebraic groups and monoids",
+		title: "Algebraic structures for modern computation",
 		summary:
-			"Structure, classification, and geometric properties, with applications to representation theory and combinatorics.",
+			"Algebraic groups, monoids, and representation-theoretic methods that clarify structure, symmetry, and computation.",
 	},
 	{
-		title: "Representation theory",
+		title: "Coding theory and secure communication",
 		summary:
-			"Interactions between representations, geometry, and number theory, especially where symmetry clarifies complex systems.",
+			"Algebraic and geometric approaches to error-correcting codes, robust communication, and security-driven applications.",
 	},
 	{
-		title: "Algebraic geometry",
+		title: "Algebraic geometry and combinatorics",
 		summary:
-			"Geometric methods for understanding algebraic structures and moduli, connecting geometry with computational techniques.",
-	},
-	{
-		title: "Error-correcting codes and secure communication",
-		summary:
-			"Algebraic and geometric approaches to robust communication, coding theory, and cryptographic protocols.",
+			"Geometric and combinatorial models for representation theory, Schubert varieties, monoids, and related moduli problems.",
 	},
 ] as const;
 
@@ -65,17 +60,6 @@ const recentHighlights = [
 		detail: "Fulbright U.S. Scholar to Portugal (host: Universidade Nova de Lisboa).",
 	},
 ] as const;
-
-let students = [];
-try {
-	students = await getCollection("students");
-} catch {
-	students = [];
-}
-
-const currentStudents = students
-	.filter((entry) => !entry.data.draft && entry.data.status === "current")
-	.map((entry) => entry.data);
 
 let publications = [];
 try {
@@ -125,9 +109,9 @@ function isExternalLink(href: string) {
 				/>
 				<div class="space-y-2 text-sm text-slate-700">
 					<p class="font-semibold text-slate-900">{site.name}</p>
-					<p>Professor of Mathematics</p>
+					<p>{site.role}</p>
 					<p>{site.affiliation}</p>
-					<p>{site.location}</p>
+					{site.location ? <p>{site.location}</p> : null}
 					<p><a href={`mailto:${site.email}`}>{site.email}</a></p>
 				</div>
 				<div class="flex flex-wrap gap-2">
@@ -150,53 +134,26 @@ function isExternalLink(href: string) {
 
 			<div class="space-y-6">
 				<div>
-					<p class="section-title">Tulane University</p>
+					<p class="section-title">Mathematics · Coding Theory · Quantum Technologies</p>
 					<h1 class="mt-2 text-3xl leading-tight sm:text-5xl">Mahir Bilen Can</h1>
 					<p class="mt-4 max-w-3xl text-[16px] leading-8 text-slate-700">
-						I am a professor of mathematics at Tulane University. My research focuses on algebraic groups and monoids,
-						representation theory, algebraic geometry, and applications to coding theory and secure communication.
+						I am a mathematician and researcher working across algebraic structures, representation theory,
+						algebraic geometry, coding theory, and secure communication. After a long academic career at
+						Tulane University, I am transitioning to full-time industry work at Xanadu while maintaining a
+						selective research and professional record.
 					</p>
 				</div>
 
 				<dl class="grid gap-3 border-y border-slate-200 py-4 text-sm text-slate-700">
 					<div class="grid gap-1 sm:grid-cols-[8rem_minmax(0,1fr)]">
-						<dt class="font-semibold text-slate-900">Office</dt>
-						<dd>Gibson Hall, Room 319, New Orleans, LA</dd>
+						<dt class="font-semibold text-slate-900">Current Role</dt>
+						<dd>{site.role}, {site.affiliation}</dd>
 				</div>
 					<div class="grid gap-1 sm:grid-cols-[8rem_minmax(0,1fr)]">
 						<dt class="font-semibold text-slate-900">Research</dt>
-						<dd>Algebraic groups, representation theory, algebraic geometry, coding theory</dd>
+						<dd>Algebraic structures, coding theory, secure communication, quantum technologies</dd>
 					</div>
 				</dl>
-
-				<div>
-					<p class="mb-2 text-sm font-semibold text-slate-900">Education</p>
-					<ul class="grid gap-2 sm:grid-cols-2">
-						{almaMaters.map((item) => (
-							<li>
-								<a
-									class="flex items-center gap-3 border border-slate-200 px-3 py-2 no-underline hover:bg-slate-50"
-									href={item.href}
-									target="_blank"
-									rel="noreferrer"
-								>
-										<img
-											src={item.logo.src}
-											alt={`${item.school} logo`}
-											class="h-9 w-9 object-contain"
-											loading="lazy"
-											width={item.logo.width}
-											height={item.logo.height}
-										/>
-									<span class="text-sm text-slate-700">
-										<span class="block font-semibold text-slate-900">{item.school}</span>
-										<span>{item.degree} ({item.year})</span>
-									</span>
-								</a>
-							</li>
-						))}
-					</ul>
-				</div>
 
 				<div>
 					<p class="mb-2 text-sm font-semibold text-slate-900">Industry and Ventures</p>
@@ -220,6 +177,35 @@ function isExternalLink(href: string) {
 									<span class="text-sm text-slate-700">
 										<span class="block font-semibold text-slate-900">{item.name}</span>
 										<span class="block">{item.role}</span>
+									</span>
+								</a>
+							</li>
+						))}
+					</ul>
+				</div>
+
+				<div>
+					<p class="mb-2 text-sm font-semibold text-slate-900">Education</p>
+					<ul class="grid gap-2 sm:grid-cols-2">
+						{almaMaters.map((item) => (
+							<li>
+								<a
+									class="flex items-center gap-3 border border-slate-200 bg-white px-3 py-2 no-underline hover:bg-slate-50"
+									href={item.href}
+									target="_blank"
+									rel="noreferrer"
+								>
+									<img
+										src={item.logo.src}
+										alt={`${item.school} logo`}
+										class="h-9 w-9 object-contain"
+										loading="lazy"
+										width={item.logo.width}
+										height={item.logo.height}
+									/>
+									<span class="text-sm text-slate-700">
+										<span class="block font-semibold text-slate-900">{item.school}</span>
+										<span>{item.degree} ({item.year})</span>
 									</span>
 								</a>
 							</li>
@@ -281,29 +267,12 @@ function isExternalLink(href: string) {
 			</ol>
 		</section>
 
-		<section class="grid gap-10 border-t border-slate-200 pt-8 md:grid-cols-2">
+		<section class="grid gap-6 border-t border-slate-200 pt-8 lg:grid-cols-[1.3fr_0.7fr]">
 			<div class="space-y-3">
-				<p class="section-title">Teaching and Mentorship</p>
-				<h2 class="text-2xl sm:text-3xl">Current Students</h2>
-				{currentStudents.length === 0 ? (
-					<p class="text-sm text-slate-600">No current students listed.</p>
-				) : (
-					<ul class="space-y-2">
-						{currentStudents.slice(0, 6).map((student) => (
-							<li class="border-b border-slate-200 pb-2 text-sm text-slate-700">
-								<span class="font-semibold text-slate-900">{student.name}</span>
-								<span> · {student.degree}</span>
-								<span> · {student.years}</span>
-							</li>
-						))}
-					</ul>
-				)}
-				<a class="pill" href="/students/">Student archive</a>
-			</div>
-
-			<div class="space-y-3">
-				<p class="section-title">Professional Activities</p>
-				<h2 class="text-2xl sm:text-3xl">Recent Highlights</h2>
+				<div class="border-b border-slate-200 pb-3">
+					<p class="section-title">Professional Record</p>
+					<h2 class="text-2xl sm:text-3xl">Selected Highlights</h2>
+				</div>
 				<ul class="space-y-2">
 					{recentHighlights.map((item) => (
 						<li class="border-b border-slate-200 pb-2 text-sm text-slate-700">
@@ -311,7 +280,28 @@ function isExternalLink(href: string) {
 						</li>
 					))}
 				</ul>
-				<a class="pill" href="/work/">Professional activities page</a>
+				<a class="pill" href="/work/">Industry & service</a>
+			</div>
+
+			<div class="space-y-4 border border-slate-200 bg-slate-50 p-5">
+				<div>
+					<p class="section-title">Academic Archive</p>
+					<h2 class="mt-2 text-2xl">Teaching & Mentorship</h2>
+					<p class="mt-2 text-sm text-slate-700">
+						Maintained for completeness, but intentionally secondary to research, industry, and publication information.
+					</p>
+				</div>
+
+				<div class="grid gap-3 text-sm text-slate-700">
+					<a class="surface no-underline hover:bg-white" href="/teaching/">
+						<span class="block font-semibold text-slate-950">Teaching Archive</span>
+						<span>Course history</span>
+					</a>
+					<a class="surface no-underline hover:bg-white" href="/students/">
+						<span class="block font-semibold text-slate-950">Student Mentorship</span>
+						<span>Graduate mentorship archive</span>
+					</a>
+				</div>
 			</div>
 		</section>
 	</div>

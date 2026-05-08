@@ -1,10 +1,12 @@
 export const site = {
 	name: "Mahir Bilen Can",
 	description:
-		"Professor of Mathematics at Tulane University. Research in algebraic groups and monoids, representation theory, algebraic geometry, and secure communication.",
+		"Mathematician and researcher working across algebra, representation theory, algebraic geometry, coding theory, secure communication, and quantum technologies.",
 	email: "mcan@tulane.edu",
-	location: "New Orleans, LA",
-	affiliation: "Tulane University",
+	location: "",
+	affiliation: "Xanadu",
+	role: "Senior Quantum Architecture Scientist",
+	formerAffiliation: "Tulane University",
 	profileImage: "/images/Mahir.jpg",
 	social: {
 		orcid: "https://orcid.org/0000-0002-0175-4897",
@@ -20,7 +22,7 @@ export const site = {
 export const organizations = [
 	{
 		name: "Xanadu",
-		role: "Contracting work",
+		role: "Full-time industry role",
 		href: "https://www.xanadu.ai/",
 		logo: {
 			src: "/images/Xanadu_Logo_Black.webp",
@@ -31,7 +33,7 @@ export const organizations = [
 	},
 	{
 		name: "QSPARC Labs",
-		role: "Startup",
+		role: "Startup venture",
 		href: "https://www.qsparclabs.com/",
 		logo: {
 			src: "/images/qsparc-logo.png",

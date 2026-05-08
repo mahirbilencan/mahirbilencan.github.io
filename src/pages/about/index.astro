@@ -11,8 +11,9 @@ import { site } from "../../lib/site";
 
 		<div class="prose max-w-3xl">
 			<p>
-				I am a professor of mathematics at {site.affiliation}. My work spans algebraic groups and monoids,
-				representation theory, algebraic geometry, and the mathematics of secure communication.
+				I am a mathematician and researcher working across algebraic groups and monoids, representation theory,
+				algebraic geometry, coding theory, and secure communication. I am transitioning from Tulane University to
+				a full-time industry role at {site.affiliation}.
 			</p>
 
 			<h2>Research</h2>
@@ -22,15 +23,15 @@ import { site } from "../../lib/site";
 				<a href="/research/">Research</a> and <a href="/publications/">Publications</a>.
 			</p>
 
-			<h2>Teaching and Mentorship</h2>
+			<h2>Professional Profile</h2>
 			<p>
-				I teach undergraduate and graduate courses in algebra, geometry, and analysis, and I supervise graduate and
-				undergraduate researchers. Teaching history is listed on the <a href="/teaching/">Teaching</a> page.
+				This site emphasizes research output, industry-facing collaborations, and selected professional activities.
+				Teaching and mentorship pages remain available as an academic archive rather than as the primary focus.
 			</p>
 
 			<h2>Contact</h2>
 			<p>Email: <a href={`mailto:${site.email}`}>{site.email}</a></p>
-			<p>Office: Gibson Hall, Room 319 — New Orleans, LA</p>
+			{site.location ? <p>Location: {site.location}</p> : null}
 		</div>
 	</section>
 </SiteLayout>

@@ -7,10 +7,13 @@ import { site } from "../../lib/site";
 	<section class="space-y-6">
 		<div class="border-b border-slate-200 pb-4">
 			<h1>Contact</h1>
+			<p class="max-w-2xl text-sm leading-7 text-slate-700">
+				For research, industry, or collaboration inquiries, please include brief context and any relevant links.
+				Teaching and advising records remain available as archive pages.
+			</p>
 		</div>
 
 		<div class="max-w-2xl space-y-3 text-sm text-slate-700">
-			<p>The fastest way to reach me is by email.</p>
 			<p>
 				Email:
 				<a href={`mailto:${site.email}`}>{site.email}</a>
@@ -36,9 +39,6 @@ import { site } from "../../lib/site";
 					<span>Citation profile</span>
 				</a>
 			</p>
-			<p>Office: Gibson Hall, Room 319 — New Orleans, LA</p>
-			<p>Address: 6283 St. Charles Ave, New Orleans, LA 70118, USA</p>
-			<p>If you are reaching out about research or advising, include brief context and preferred meeting times.</p>
 		</div>
 	</section>
 </SiteLayout>

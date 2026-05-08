@@ -3,7 +3,7 @@
 @layer base {
   :root {
     color-scheme: light;
-    --page-bg: #ffffff;
+    --page-bg: #f8fafc;
     --ink: #111827;
     --ink-soft: #374151;
     --line: #dbe2ea;
@@ -18,7 +18,7 @@
 
   body {
     font-family: "Source Sans Pro", "Avenir Next", "Segoe UI", "Helvetica Neue", sans-serif;
-    background: #ffffff;
+    background: #f8fafc;
     @apply text-[var(--ink)] antialiased;
   }
 
@@ -79,19 +79,19 @@
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center rounded-sm bg-[#133f87] px-4 py-2 text-sm font-semibold text-white no-underline transition hover:bg-[#0f326d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#133f87]/35 focus-visible:ring-offset-2 focus-visible:ring-offset-white;
+    @apply inline-flex items-center justify-center rounded-md bg-[#133f87] px-4 py-2 text-sm font-semibold text-white no-underline transition hover:bg-[#0f326d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#133f87]/35 focus-visible:ring-offset-2 focus-visible:ring-offset-white;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center rounded-sm border border-[var(--line-strong)] bg-white px-4 py-2 text-sm font-semibold text-[#0f172a] no-underline transition hover:border-[#a8b8cb] hover:bg-[#f6f9ff] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#133f87]/35 focus-visible:ring-offset-2 focus-visible:ring-offset-white;
+    @apply inline-flex items-center justify-center rounded-md border border-[var(--line-strong)] bg-white px-4 py-2 text-sm font-semibold text-[#0f172a] no-underline transition hover:border-[#a8b8cb] hover:bg-[#f6f9ff] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#133f87]/35 focus-visible:ring-offset-2 focus-visible:ring-offset-white;
   }
 
   .pill {
-    @apply inline-flex items-center rounded-sm border border-[var(--line-strong)] bg-white px-2.5 py-1 text-xs font-semibold text-[#0f172a] no-underline transition hover:border-[#a8b8cb] hover:bg-[#f6f9ff];
+    @apply inline-flex items-center rounded-md border border-[var(--line-strong)] bg-white px-2.5 py-1 text-xs font-semibold text-[#0f172a] no-underline transition hover:border-[#a8b8cb] hover:bg-[#f6f9ff];
   }
 
   .surface {
-    @apply rounded-sm border border-[var(--line)] bg-white p-6;
+    @apply border border-[var(--line)] bg-white p-6 shadow-sm;
   }
 
   .section-title {

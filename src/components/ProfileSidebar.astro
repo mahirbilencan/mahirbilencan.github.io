@@ -26,20 +26,22 @@ import profileImage from "../assets/images/profile.png";
  <div>
  <p class="text-lg font-semibold leading-tight text-[#0f2c24]">{site.name}</p>
  <p class="mt-1 text-sm uppercase tracking-[0.16em] text-[#3f5a7a]">
- Professor of Mathematics
+ {site.role}
  </p>
  <p class="text-sm text-[#2c3a40]">{site.affiliation}</p>
  </div>
 
  <dl class="grid gap-3 text-sm text-[#2c3a40]">
  <div class="grid grid-cols-[5.5rem_1fr] gap-2">
- <dt class="text-[#3f5a7a]">Office</dt>
- <dd class="min-w-0">Gibson Hall, Room 319</dd>
+ <dt class="text-[#3f5a7a]">Focus</dt>
+ <dd class="min-w-0">Algebra, coding theory, secure communication</dd>
  </div>
+ {site.location ? (
  <div class="grid grid-cols-[5.5rem_1fr] gap-2">
  <dt class="text-[#3f5a7a]">Location</dt>
  <dd class="min-w-0">{site.location}</dd>
  </div>
+ ) : null}
  <div class="grid grid-cols-[5.5rem_1fr] gap-2">
  <dt class="text-[#3f5a7a]">Email</dt>
  <dd class="min-w-0 truncate">
