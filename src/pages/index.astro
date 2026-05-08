@@ -110,8 +110,9 @@ function isExternalLink(href: string) {
 				<div class="space-y-2 text-sm text-slate-700">
 					<p class="font-semibold text-slate-900">{site.name}</p>
 					<p>{site.role}</p>
-					<p>{site.affiliation}</p>
-					<p>On leave from {site.leaveAffiliation}</p>
+					<p>{site.affiliation} ({site.academicStatus.toLowerCase()})</p>
+					<p>{site.industryRole}</p>
+					<p>{site.industryAffiliation}, starting {site.industryStartDate}</p>
 					{site.location ? <p>{site.location}</p> : null}
 					<p><a href={`mailto:${site.email}`}>{site.email}</a></p>
 				</div>
@@ -138,20 +139,20 @@ function isExternalLink(href: string) {
 					<p class="section-title">Mathematics · Coding Theory · Quantum Technologies</p>
 					<h1 class="mt-2 text-3xl leading-tight sm:text-5xl">Mahir Bilen Can</h1>
 					<p class="mt-4 max-w-3xl text-[16px] leading-8 text-slate-700">
-						I am a Senior Quantum Architecture Scientist at Xanadu (on leave from Tulane University). My work spans
-						algebraic structures, representation theory, algebraic geometry, coding theory, secure communication, and
-						quantum technologies.
+						I am a mathematician specializing in algebraic geometry, coding theory, and quantum error correction. I am
+						currently a Professor of Mathematics at Tulane University (on leave). Starting June 2026, I will be joining
+						Xanadu Quantum Technologies full-time to focus on logical prototyping and code construction.
 					</p>
 				</div>
 
 				<dl class="grid gap-3 border-y border-slate-200 py-4 text-sm text-slate-700">
 					<div class="grid gap-1 sm:grid-cols-[8rem_minmax(0,1fr)]">
-						<dt class="font-semibold text-slate-900">Current Role</dt>
-						<dd>{site.role}, {site.affiliation}</dd>
+						<dt class="font-semibold text-slate-900">Academic Role</dt>
+						<dd>{site.role}, {site.affiliation} ({site.academicStatus.toLowerCase()})</dd>
 				</div>
 					<div class="grid gap-1 sm:grid-cols-[8rem_minmax(0,1fr)]">
-						<dt class="font-semibold text-slate-900">Academic Role</dt>
-						<dd>{site.leaveRole}, on leave from {site.leaveAffiliation}</dd>
+						<dt class="font-semibold text-slate-900">Industry Role</dt>
+						<dd>{site.industryRole}, {site.industryAffiliation}, starting {site.industryStartDate}</dd>
 					</div>
 					<div class="grid gap-1 sm:grid-cols-[8rem_minmax(0,1fr)]">
 						<dt class="font-semibold text-slate-900">Research</dt>

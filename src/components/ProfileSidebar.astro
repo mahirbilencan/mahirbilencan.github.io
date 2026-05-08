@@ -28,8 +28,9 @@ import profileImage from "../assets/images/profile.png";
  <p class="mt-1 text-sm uppercase tracking-[0.16em] text-[#3f5a7a]">
  {site.role}
  </p>
- <p class="text-sm text-[#2c3a40]">{site.affiliation}</p>
- <p class="text-sm text-[#2c3a40]">On leave from {site.leaveAffiliation}</p>
+ <p class="text-sm text-[#2c3a40]">{site.affiliation} ({site.academicStatus.toLowerCase()})</p>
+ <p class="text-sm text-[#2c3a40]">{site.industryRole}, {site.industryAffiliation}</p>
+ <p class="text-sm text-[#2c3a40]">Starting {site.industryStartDate}</p>
  </div>
 
  <dl class="grid gap-3 text-sm text-[#2c3a40]">

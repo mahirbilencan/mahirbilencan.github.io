@@ -1,13 +1,15 @@
 export const site = {
 	name: "Mahir Bilen Can",
 	description:
-		"Senior Quantum Architecture Scientist at Xanadu, on leave from Tulane University. Research in algebra, representation theory, algebraic geometry, coding theory, secure communication, and quantum technologies.",
+		"Mathematician specializing in algebraic geometry, coding theory, and quantum error correction. Professor of Mathematics at Tulane University (on leave), joining Xanadu Quantum Technologies full-time in June 2026.",
 	email: "mcan@tulane.edu",
 	location: "",
-	affiliation: "Xanadu",
-	role: "Senior Quantum Architecture Scientist",
-	leaveAffiliation: "Tulane University",
-	leaveRole: "Professor of Mathematics",
+	affiliation: "Tulane University",
+	role: "Professor of Mathematics",
+	academicStatus: "On leave",
+	industryAffiliation: "Xanadu Quantum Technologies",
+	industryRole: "Senior Quantum Architecture Scientist",
+	industryStartDate: "June 2026",
 	profileImage: "/images/Mahir.jpg",
 	social: {
 		orcid: "https://orcid.org/0000-0002-0175-4897",
