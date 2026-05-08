@@ -111,6 +111,8 @@ function isExternalLink(href: string) {
 					<p class="font-semibold text-slate-900">{site.name}</p>
 					<p>{site.role}</p>
 					<p>{site.affiliation}</p>
+					<p>{site.industryRole}</p>
+					<p>{site.industryAffiliation}</p>
 					{site.location ? <p>{site.location}</p> : null}
 					<p><a href={`mailto:${site.email}`}>{site.email}</a></p>
 				</div>
@@ -137,10 +139,9 @@ function isExternalLink(href: string) {
 					<p class="section-title">Mathematics · Coding Theory · Quantum Technologies</p>
 					<h1 class="mt-2 text-3xl leading-tight sm:text-5xl">Mahir Bilen Can</h1>
 					<p class="mt-4 max-w-3xl text-[16px] leading-8 text-slate-700">
-						I am a mathematician and researcher working across algebraic structures, representation theory,
-						algebraic geometry, coding theory, and secure communication. After a long academic career at
-						Tulane University, I am transitioning to full-time industry work at Xanadu while maintaining a
-						selective research and professional record.
+						I am a professor of mathematics at Tulane University and a Senior Quantum Architecture Scientist at
+						Xanadu. My work spans algebraic structures, representation theory, algebraic geometry, coding theory,
+						secure communication, and quantum technologies.
 					</p>
 				</div>
 
@@ -149,6 +150,10 @@ function isExternalLink(href: string) {
 						<dt class="font-semibold text-slate-900">Current Role</dt>
 						<dd>{site.role}, {site.affiliation}</dd>
 				</div>
+					<div class="grid gap-1 sm:grid-cols-[8rem_minmax(0,1fr)]">
+						<dt class="font-semibold text-slate-900">Industry</dt>
+						<dd>{site.industryRole}, {site.industryAffiliation}</dd>
+					</div>
 					<div class="grid gap-1 sm:grid-cols-[8rem_minmax(0,1fr)]">
 						<dt class="font-semibold text-slate-900">Research</dt>
 						<dd>Algebraic structures, coding theory, secure communication, quantum technologies</dd>
