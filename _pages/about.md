@@ -1,6 +1,6 @@
 ---
 layout: about
-title: about
+title: About
 permalink: /
 subtitle: Mathematician. <a href='https://tulane.edu/'>Tulane University</a> (on leave) · <a href='https://www.xanadu.ai/'>Xanadu Quantum Technologies</a>.
 

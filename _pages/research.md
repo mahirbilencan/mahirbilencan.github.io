@@ -1,7 +1,7 @@
 ---
 layout: page
 permalink: /research/
-title: research
+title: Research
 description: Algebraic structures, coding theory, and secure communication.
 nav: true
 nav_order: 2

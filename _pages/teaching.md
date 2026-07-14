@@ -1,7 +1,7 @@
 ---
 layout: page
 permalink: /teaching/
-title: teaching
+title: Teaching
 description: Courses taught at Tulane University and elsewhere.
 nav: true
 nav_order: 3

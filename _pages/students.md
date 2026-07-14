@@ -1,7 +1,7 @@
 ---
 layout: page
 permalink: /students/
-title: students
+title: Students
 description: Doctoral and masters students, current and past.
 nav: true
 nav_order: 4

@@ -226,6 +226,15 @@ html body h6 {
 }
 
 /*******************************************************************************
+ * Slimmer footer (theme default is 40px padding top and bottom).
+ ******************************************************************************/
+html footer.sticky-bottom {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  font-size: 0.8rem;
+}
+
+/*******************************************************************************
  * Smaller social/contact icons at the bottom of the about page
  * (theme default is 4rem, which reads oversized).
  ******************************************************************************/

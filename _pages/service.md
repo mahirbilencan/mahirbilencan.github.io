@@ -1,7 +1,7 @@
 ---
 layout: page
 permalink: /service/
-title: industry & service
+title: Industry & Service
 description: Industry-facing work, startup activity, editorial service, conference organization, and professional highlights.
 nav: true
 nav_order: 5

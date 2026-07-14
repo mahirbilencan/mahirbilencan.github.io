@@ -1,7 +1,7 @@
 ---
 layout: page
 permalink: /publications/
-title: publications
+title: Publications
 description: Research articles, preprints, and edited volumes in reverse chronological order.
 nav: true
 nav_order: 1
