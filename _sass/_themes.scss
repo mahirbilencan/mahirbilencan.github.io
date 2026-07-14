@@ -224,3 +224,30 @@ html body h5,
 html body h6 {
   font-family: "IBM Plex Serif", Georgia, serif;
 }
+
+/*******************************************************************************
+ * Smaller social/contact icons at the bottom of the about page
+ * (theme default is 4rem, which reads oversized).
+ ******************************************************************************/
+html .social .contact-icons {
+  font-size: 2rem;
+
+  a {
+    img {
+      width: 1.6rem;
+      height: 1.6rem;
+      margin-bottom: 0.5rem;
+    }
+
+    svg {
+      width: 1.75rem;
+      height: 2rem;
+      margin-bottom: 0.25rem;
+
+      image {
+        width: 1.75rem;
+        height: 1.75rem;
+      }
+    }
+  }
+}
