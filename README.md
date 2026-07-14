@@ -1,10 +1,33 @@
-# mahirbilencan.github.io
+# Mahir Bilen Can
 
-Personal academic website of Mahir Bilen Can, built with [al-folio](https://github.com/alshedivat/al-folio) (Jekyll).
+<p>
+  <img src="assets/img/prof_pic.jpg" alt="Portrait of Mahir Bilen Can" width="220">
+</p>
 
-- Publications live in `_bibliography/papers.bib` (converted from the previous site by `scripts/md2bib.mjs`).
-- Pages are in `_pages/`; site identity in `_config.yml` and `_data/socials.yml`.
-- Local preview: `docker compose up`, then open `http://localhost:8080`.
-- Deploys to GitHub Pages from the `gh-pages` branch via `.github/workflows/deploy.yml` on push to `main`.
+Professor of Mathematics at Tulane University (on leave). Senior Quantum Architecture Scientist at Xanadu Quantum Technologies, starting June 2026.
 
-The previous Astro site is preserved at the git tag `astro-site-final`.
+This repository hosts my personal academic website, including research interests, publications, professional activities, teaching, students, and contact information.
+
+## About
+
+My work focuses on algebraic groups and monoids, representation theory, algebraic geometry, and applications to coding theory, secure communication, and quantum error correction.
+
+## Quick Links
+
+- Website: [mahirbilencan.github.io](https://mahirbilencan.github.io/)
+- Publications: [Publications page](https://mahirbilencan.github.io/publications/)
+- Industry & Service: [Industry and service page](https://mahirbilencan.github.io/service/)
+- CV: [CV (PDF)](https://mahirbilencan.github.io/assets/pdf/CV.pdf)
+- Email: [mcan@tulane.edu](mailto:mcan@tulane.edu)
+
+## Profiles
+
+- ORCID: [0000-0002-0175-4897](https://orcid.org/0000-0002-0175-4897)
+- arXiv: [can_m_1](https://arxiv.org/a/can_m_1)
+- Google Scholar: [Citation profile](https://scholar.google.com/citations?user=jbvQXE4AAAAJ&hl=en&oi=ao)
+
+## Development
+
+Built with [al-folio](https://github.com/alshedivat/al-folio) (Jekyll). Publications live in `_bibliography/papers.bib`; pages in `_pages/`; site identity in `_config.yml` and `_data/socials.yml`.
+
+To preview locally: make sure Docker Desktop is running, then run `npm run dev` and open `http://localhost:8080`. Stop with `npm run dev:stop`. The previous Astro site is preserved at the git tag `astro-site-final`.
