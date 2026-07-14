@@ -1,0 +1,35 @@
+# Map venue abbreviations (abbr field in papers.bib) to URLs and badge colors.
+"arXiv":
+  url: https://arxiv.org/a/can_m_1
+  color: "#b31b1b"
+
+"DCC":
+  url: https://link.springer.com/journal/10623
+
+"IEEE TIT":
+  url: https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=18
+  color: "#00629b"
+
+"FFA":
+  url: https://www.sciencedirect.com/journal/finite-fields-and-their-applications
+
+"JA":
+  url: https://www.sciencedirect.com/journal/journal-of-algebra
+
+"Sigma":
+  url: https://www.cambridge.org/core/journals/forum-of-mathematics-sigma
+
+"SF":
+  url: https://link.springer.com/journal/233
+
+"TAMS":
+  url: https://www.ams.org/journals/tran/
+
+"PAMS":
+  url: https://www.ams.org/journals/proc/
+
+"AiM":
+  url: https://www.sciencedirect.com/journal/advances-in-mathematics
+
+"JCTA":
+  url: https://www.sciencedirect.com/journal/journal-of-combinatorial-theory-series-a

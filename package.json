@@ -1,16 +1,18 @@
 {
-  "name": "astro",
-  "type": "module",
-  "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "dev": "docker compose up",
+    "dev:pull": "docker compose pull",
+    "dev:stop": "docker compose down",
+    "lint:prettier": "prettier . --check",
+    "lint:style-contract": "node test/style_contract.js",
+    "test:visual": "playwright test --config test/visual/playwright.config.js",
+    "test:visual:update": "playwright test --config test/visual/playwright.config.js --update-snapshots"
   },
-  "dependencies": {
-    "@tailwindcss/vite": "^4.1.18",
-    "astro": "^6.1.8",
-    "tailwindcss": "^4.1.18"
+  "devDependencies": {
+    "@playwright/test": "^1.56.1",
+    "@shopify/prettier-plugin-liquid": "^1.10.0",
+    "pixelmatch": "^7.1.0",
+    "pngjs": "^7.0.0",
+    "prettier": "^3.8.0"
   }
 }

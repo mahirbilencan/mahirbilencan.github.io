@@ -1,0 +1,166 @@
+cv:
+  name: Mahir Bilen Can
+  label: Mathematician
+  email: mcan@tulane.edu
+  location: New Orleans, LA
+  image: ""
+  summary: Mathematician specializing in algebraic geometry, coding theory, and quantum error correction. Senior Quantum Architecture Scientist at Xanadu Quantum Technologies since June 2026; Professor of Mathematics at Tulane University (on leave).
+
+  sections:
+    Education:
+      - institution: University of Pennsylvania
+        location: Philadelphia, PA
+        url: https://www.math.upenn.edu/
+        area: Mathematics
+        studyType: PhD
+        start_date: ""
+        end_date: 2006
+
+      - institution: Middle East Technical University (METU)
+        location: Ankara, Turkey
+        url: https://math.metu.edu.tr/en/program-overview
+        area: Mathematics
+        studyType: BSc
+        start_date: ""
+        end_date: 2001
+
+    Experience:
+      - company: Xanadu Quantum Technologies
+        position: Senior Quantum Architecture Scientist
+        location: Toronto, Canada
+        start_date: 2026
+        end_date: present
+        summary: Full-time since June 2026; previously consultant.
+
+      - company: QSPARC Labs
+        position: Co-founder
+        start_date: 2025
+        end_date: present
+
+      - company: Tulane University
+        position: Professor of Mathematics
+        location: New Orleans, LA
+        start_date: 2020
+        end_date: present
+        summary: On leave.
+
+      - company: Tulane University
+        position: Associate Professor
+        location: New Orleans, LA
+        start_date: 2014
+        end_date: 2020
+
+      - company: Tulane University
+        position: Assistant Professor
+        location: New Orleans, LA
+        start_date: 2008
+        end_date: 2014
+
+      - company: Western University
+        position: Postdoctorate
+        location: London, Ontario, Canada
+        start_date: 2006
+        end_date: 2008
+
+    Research:
+      - bullet: "My research investigates algebraic structures and their geometric manifestations, with emphasis on representation theory, algebraic geometry, and coding theory."
+      - bullet: "**Algebraic groups and monoids:** structure, classification, compactifications, and invariant theory."
+      - bullet: "**Representation theory:** unitary representations, harmonic analysis, and categorical methods."
+      - bullet: "**Algebraic geometry:** birational techniques and singularities tied to representation-theoretic questions."
+      - bullet: "**Coding theory and security:** algebraic and geometric constructions for reliable communication."
+      - bullet: "A growing part of this work connects mathematical structure with computational and communication problems, including quantum technologies, error-correcting codes, and secure information processing. See the [complete publication list](/publications/) for research output and references."
+
+    Industry and Ventures:
+      - bullet: "[**Xanadu Quantum Technologies**](https://www.xanadu.ai/) — Senior Quantum Architecture Scientist."
+      - bullet: "[**QSPARC Labs**](https://www.qsparclabs.com/) — Co-founder and startup venture."
+
+    Visiting Positions:
+      - bullet: "**NOVA FCT, Portugal** (as a Fulbright U.S. Scholar), May to August 2024."
+      - bullet: "**Okinawa Institute of Science and Technology, Japan**, June to September 2023."
+      - bullet: "**Indian Institute of Technology Bombay, India**, January 2023 and December 2023."
+      - bullet: "**NOVA FCT, Portugal**, December 2021."
+      - bullet: "**University of California, San Diego**, Spring 2017."
+      - bullet: "**Yale University**, 2012 to 2013."
+      - bullet: "**The Chinese University of Hong Kong**, February 2013."
+
+    Patents:
+      - bullet: "**Quantum Error Correcting Codes from Higher Grassmann Codes.** International (PCT) Application PCT/US2023/018890; International Publication WO 2024/058827 (A2), published March 21, 2024. Applicant Ohio State Innovation Foundation. Inventors Mahir Bilen Can, Roy Joshua, Ravindra Girivaru."
+      - bullet: "**Systems and Methods for Secure and Reliable Data Storage and Transmission.** U.S. Provisional Application 63/783,638, filed April 4, 2025. Applicant The Administrators of the Tulane Educational Fund. Inventors Mahir Bilen Can, Dillon Montero."
+
+    Teaching:
+      - bullet: "**Tulane University:** Calculus III (Math 2210); Consolidated Calculus (Math 1310); Linear Algebra (Math 3060/6060); Abstract Algebra I (Math 3110/6110); Abstract Algebra II; Honors Linear Algebra; Combinatorics; Topics in Algebra: Lie Groups and Representation Theory; Topics in Algebra: Lie Algebras and Representation Theory; Topics in Algebra: Coding Theory I and II; Topics in Algebra: Algebraic Geometry I and II."
+      - bullet: "**University of California, San Diego:** Vector Calculus (Math 20E)."
+      - bullet: "**Yale University:** Geometry of Coxeter Groups (graduate)."
+
+    Graduate Student Advising:
+      - bullet: "**Zafar Iqbal**, PhD, 2024 to present. Co-advising with A. Casimiro (NOVA FCT)."
+      - bullet: "**Naufil Sakran**, PhD, 2021 to present."
+      - bullet: "**Dillon Montero**, PhD, 2021 to 2025. Thesis: *Analogs of NRT Reed Solomon Codes in Bottleneck Metrics*."
+      - bullet: "**Nestor Diaz Morera**, PhD, 2018 to 2024. Thesis: *Torus Actions, Spherical Varieties, Dyck Paths, and Shellability*."
+      - bullet: "**Hayden Houser**, PhD, 2017 to 2024. Thesis: *Signature Quantization of the Classical Groups*."
+      - bullet: "**Corey Wolfe**, PhD, 2017 to 2024. Thesis: *On the Borel Submonoid and Nilpotent Subsemigroup of a Symplectic Monoid*."
+      - bullet: "**Aram Bingham**, PhD, 2015 to 2021. Thesis: *Clans, Sects, and Symmetric Spaces of Hermitian Type*."
+      - bullet: "**Yiyang She**, PhD, 2016 to 2021. Thesis: *Strong Gelfand Subgroups of wreath products of cyclic groups with symmetric groups*."
+      - bullet: "**Tien Le**, PhD, 2015 to 2020. Thesis: *Orbits in Double Flag Varieties*."
+      - bullet: "**Dejun Zhang**, MS, 2020. Thesis: *Topological Galois Theory of Riemann Surfaces*."
+      - bullet: "**Özlem Uğurlu**, PhD, 2013 to 2018. Thesis: *Counting Borel Orbits in Classical Symmetric Varieties*."
+      - bullet: "**Tim Twelbeck**, PhD, 2008 to 2013. Thesis: *Shellability of Bruhat Order on Borel Orbit Closures*."
+
+    Undergraduate Student Advising:
+      - bullet: "**Batu El**, 2022, honor's thesis (co-advised): *Parametrizing Chains in Generalized FPFIs*."
+      - bullet: "**Alex Caione**, 2022, senior thesis: *Moment Map*."
+      - bullet: "**Ellen Calais**, 2020, senior thesis: *Count Your Conics*."
+      - bullet: "**Rachel Ryley**, 2014, senior thesis: *Affine Coxeter Groups and Applications*."
+      - bullet: "**Melanie Jensen**, 2013, honor's thesis: *Combinatorial Interpretations of Lucas Polynomials*."
+      - bullet: "**Jordan Martin**, 2012, senior thesis: *Properties and Applications of Involutions Under Bruhat Order*."
+
+    University-Level Service:
+      - bullet: "Promotion and Tenure Committee."
+      - bullet: "Curriculum Committee."
+      - bullet: "Honors and Awards Committee."
+
+    Editorial Service:
+      - bullet: "[**Semigroup Forum**](https://www.springer.com/journal/233), editorial board service."
+      - bullet: "[**Journal of Gökova Geometry-Topology (GGT)**](https://www.jggt-online.com/), editorial board service."
+      - bullet: "[**MathSciNet and zbMATH**](https://mathscinet.ams.org/), regular reviewer."
+
+    Conference Organization:
+      - bullet: "**2025 — Coding Theory and Cryptography**, AMS Sectional Meeting, New Orleans, Louisiana. Co-organized with Henry Chimal Dzul and Emily McMillon."
+      - bullet: "**2024 — Generalized Numerical Semigroups**, thematic session at the Conference on Theoretical and Computational Algebra, Aveiro, Portugal. Session organizer."
+      - bullet: "**2023 — Southern Regional Algebra Conference**, Tulane University. Co-organized with Kalina Mincheva and Naufil Sakran."
+
+    Recent Professional Activities:
+      - bullet: "**2025:** Visited IIT Bombay for the conference on Combinatorics, Geometry, and Representation Theory at ICTS."
+      - bullet: "**2025:** Recipient of Tulane's Provost's Proof of Concept award."
+      - bullet: "**2024:** Fulbright U.S. Scholar to Portugal, hosted by Universidade Nova de Lisboa."
+      - bullet: "**2023:** Research visits to IIT Bombay and the Okinawa Institute of Science and Technology."
+
+    Honors and Awards:
+      - title: Provost's Proof of Concept (SPARC)
+        date: 2025
+        awarder: Tulane University
+        summary: Shortest Path and Antichain Metrics.
+
+      - title: GSSA Faculty Mentor Award
+        date: 2024
+        awarder: Tulane University
+
+      - title: Fulbright U.S. Scholar Program
+        date: 2024
+        awarder: Fulbright Program
+        summary: Scientific visit to Portugal (NOVA FCT), May to August 2024.
+
+      - title: Applications of Representation Theory to Quantum Error Correction
+        date: 2023
+        awarder: Louisiana Board of Regents
+        summary: Research grant, 2023 to 2025.
+
+      - title: Targeted Enhancement Research Grant
+        date: 2021
+        awarder: Louisiana Board of Regents
+        summary: Co-PIs Tai Huy Ha, Rafal Komendarczyk, Kalina Mincheva. 2021 to 2022.
+
+      - title: Algebra and Combinatorics of Symmetric Varieties and Their Embeddings
+        date: 2014
+        awarder: NSA
+        summary: Co-PI Michael Joyce. 2014 to 2015.
