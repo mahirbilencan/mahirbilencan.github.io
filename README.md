@@ -1,10 +1,10 @@
-# Mahir Bilen Can
-
-<p>
+<p align="center">
   <img src="assets/img/prof_pic_circle.png" alt="Portrait of Mahir Bilen Can" width="220">
 </p>
 
-Professor of Mathematics at Tulane University (on leave). Senior Quantum Architecture Scientist at Xanadu Quantum Technologies since June 2026.
+<h1 align="center">Mahir Bilen Can</h1>
+
+<p align="center">Professor of Mathematics at Tulane University (on leave). Senior Quantum Architecture Scientist at Xanadu Quantum Technologies since June 2026.</p>
 
 This repository hosts my personal academic website, including research interests, publications, professional activities, teaching, students, and contact information.
 
