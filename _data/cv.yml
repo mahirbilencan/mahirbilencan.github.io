@@ -24,7 +24,19 @@ cv:
         start_date: ""
         end_date: 2001
 
-    Employment:
+    Experience:
+      - company: Xanadu Quantum Technologies
+        position: Senior Quantum Architecture Scientist
+        location: Toronto, Canada
+        start_date: 2026
+        end_date: present
+        summary: Joining full-time in June 2026; currently consultant.
+
+      - company: QSPARC Labs
+        position: Co-founder
+        start_date: ""
+        end_date: present
+
       - company: Tulane University
         position: Professor of Mathematics
         location: New Orleans, LA
@@ -50,20 +62,58 @@ cv:
         start_date: 2006
         end_date: 2008
 
-    Industry:
-      - company: Xanadu Quantum Technologies
-        position: Senior Quantum Architecture Scientist
-        location: Toronto, Canada
-        start_date: 2026
-        end_date: present
-        summary: Joining full-time in June 2026; currently consultant.
+    Visiting Positions:
+      - bullet: "**NOVA FCT, Portugal** (as a Fulbright U.S. Scholar), May to August 2024."
+      - bullet: "**Okinawa Institute of Science and Technology, Japan**, June to September 2023."
+      - bullet: "**Indian Institute of Technology Bombay, India**, January 2023 and December 2023."
+      - bullet: "**NOVA FCT, Portugal**, December 2021."
+      - bullet: "**University of California, San Diego**, Spring 2017."
+      - bullet: "**Yale University**, 2012 to 2013."
+      - bullet: "**The Chinese University of Hong Kong**, February 2013."
 
-      - company: QSPARC Labs
-        position: Co-founder
-        start_date: ""
-        end_date: present
+    Patents:
+      - bullet: "**Quantum Error Correcting Codes from Higher Grassmann Codes.** International (PCT) Application PCT/US2023/018890; International Publication WO 2024/058827 (A2), published March 21, 2024. Applicant Ohio State Innovation Foundation. Inventors Mahir Bilen Can, Roy Joshua, Ravindra Girivaru."
+      - bullet: "**Systems and Methods for Secure and Reliable Data Storage and Transmission.** U.S. Provisional Application 63/783,638, filed April 4, 2025. Applicant The Administrators of the Tulane Educational Fund. Inventors Mahir Bilen Can, Dillon Montero."
 
-    Awards and Grants:
+    Teaching:
+      - bullet: "**Tulane University:** Calculus III (Math 2210); Consolidated Calculus (Math 1310); Linear Algebra (Math 3060/6060); Abstract Algebra I (Math 3110/6110); Abstract Algebra II; Honors Linear Algebra; Combinatorics; Topics in Algebra: Lie Groups and Representation Theory; Topics in Algebra: Lie Algebras and Representation Theory; Topics in Algebra: Coding Theory I and II; Topics in Algebra: Algebraic Geometry I and II."
+      - bullet: "**University of California, San Diego:** Vector Calculus (Math 20E)."
+      - bullet: "**Yale University:** Geometry of Coxeter Groups (graduate)."
+
+    Graduate Student Advising:
+      - bullet: "**Isabel Pfaff**, PhD, 2025 to present."
+      - bullet: "**Zafar Iqbal**, PhD, 2024 to present. Co-advising with A. Casimiro (NOVA FCT)."
+      - bullet: "**Naufil Sakran**, PhD, 2021 to present."
+      - bullet: "**Dillon Montero**, PhD, 2021 to 2025. Thesis: *Analogs of NRT Reed Solomon Codes in Bottleneck Metrics*."
+      - bullet: "**Nestor Diaz Morera**, PhD, 2018 to 2024. Thesis: *Torus Actions, Spherical Varieties, Dyck Paths, and Shellability*."
+      - bullet: "**Hayden Houser**, PhD, 2017 to 2024. Thesis: *Signature Quantization of the Classical Groups*."
+      - bullet: "**Corey Wolfe**, PhD, 2017 to 2024. Thesis: *On the Borel Submonoid and Nilpotent Subsemigroup of a Symplectic Monoid*."
+      - bullet: "**Aram Bingham**, PhD, 2015 to 2021. Thesis: *Clans, Sects, and Symmetric Spaces of Hermitian Type*."
+      - bullet: "**Yiyang She**, PhD, 2016 to 2021. Thesis: *Strong Gelfand Subgroups of wreath products of cyclic groups with symmetric groups*."
+      - bullet: "**Tien Le**, PhD, 2015 to 2020. Thesis: *Orbits in Double Flag Varieties*."
+      - bullet: "**Dejun Zhang**, MS, 2020. Thesis: *Topological Galois Theory of Riemann Surfaces*."
+      - bullet: "**Özlem Uğurlu**, PhD, 2013 to 2018. Thesis: *Counting Borel Orbits in Classical Symmetric Varieties*."
+      - bullet: "**Tim Twelbeck**, PhD, 2008 to 2013. Thesis: *Shellability of Bruhat Order on Borel Orbit Closures*."
+
+    Undergraduate Student Advising:
+      - bullet: "**Batu El**, 2022, honor's thesis (co-advised): *Parametrizing Chains in Generalized FPFIs*."
+      - bullet: "**Alex Caione**, 2022, senior thesis: *Moment Map*."
+      - bullet: "**Ellen Calais**, 2020, senior thesis: *Count Your Conics*."
+      - bullet: "**Rachel Ryley**, 2014, senior thesis: *Affine Coxeter Groups and Applications*."
+      - bullet: "**Melanie Jensen**, 2013, honor's thesis: *Combinatorial Interpretations of Lucas Polynomials*."
+      - bullet: "**Jordan Martin**, 2012, senior thesis: *Properties and Applications of Involutions Under Bruhat Order*."
+
+    University-Level Service:
+      - bullet: "Promotion and Tenure Committee."
+      - bullet: "Curriculum Committee."
+      - bullet: "Honors and Awards Committee."
+
+    Editorial Service:
+      - bullet: "**Semigroup Forum**, editorial board service."
+      - bullet: "**Journal of Gökova Geometry-Topology (GGT)**, editorial board service."
+      - bullet: "**MathSciNet and zbMATH**, regular reviewer."
+
+    Honors and Awards:
       - title: Provost's Proof of Concept (SPARC)
         date: 2025
         awarder: Tulane University
@@ -92,10 +142,3 @@ cv:
         date: 2014
         awarder: NSA
         summary: Co-PI Michael Joyce. 2014 to 2015.
-
-    Editorial Service:
-      - title: Semigroup Forum
-        summary: Editorial board service.
-
-      - title: Journal of Gökova Geometry-Topology (GGT)
-        summary: Editorial board service.

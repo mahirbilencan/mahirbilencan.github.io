@@ -4,7 +4,7 @@ permalink: /service/
 title: Industry & Service
 description: Industry-facing work, startup activity, editorial service, conference organization, and professional highlights.
 nav: true
-nav_order: 5
+nav_order: 3
 ---
 
 ## Industry and ventures
