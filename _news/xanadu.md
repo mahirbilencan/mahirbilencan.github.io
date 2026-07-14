@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Joining [Xanadu Quantum Technologies](https://www.xanadu.ai/) full-time as Senior Quantum Architecture Scientist, focusing on logical prototyping and code construction.
+Joined [Xanadu Quantum Technologies](https://www.xanadu.ai/) full-time as Senior Quantum Architecture Scientist, focusing on logical prototyping and code construction.

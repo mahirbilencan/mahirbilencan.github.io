@@ -4,7 +4,7 @@ cv:
   email: mcan@tulane.edu
   location: New Orleans, LA
   image: ""
-  summary: Mathematician specializing in algebraic geometry, coding theory, and quantum error correction. Professor of Mathematics at Tulane University (on leave), joining Xanadu Quantum Technologies full-time in June 2026.
+  summary: Mathematician specializing in algebraic geometry, coding theory, and quantum error correction. Senior Quantum Architecture Scientist at Xanadu Quantum Technologies since June 2026; Professor of Mathematics at Tulane University (on leave).
 
   sections:
     Education:
@@ -30,11 +30,11 @@ cv:
         location: Toronto, Canada
         start_date: 2026
         end_date: present
-        summary: Joining full-time in June 2026; currently consultant.
+        summary: Full-time since June 2026; previously consultant.
 
       - company: QSPARC Labs
         position: Co-founder
-        start_date: ""
+        start_date: 2025
         end_date: present
 
       - company: Tulane University

@@ -12,7 +12,7 @@ profile:
     <p>Professor of Mathematics</p>
     <p>Tulane University (on leave)</p>
     <p>Senior Quantum Architecture Scientist</p>
-    <p>Xanadu, starting June 2026</p>
+    <p>Xanadu, since June 2026</p>
 
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
@@ -28,7 +28,7 @@ latest_posts:
   limit: 3
 ---
 
-I am a mathematician specializing in **algebraic geometry**, **coding theory**, and **quantum error correction**. I am currently a Professor of Mathematics at [Tulane University](https://sse.tulane.edu/math) (on leave). Starting June 2026, I will be joining [Xanadu Quantum Technologies](https://www.xanadu.ai/) full-time to focus on logical prototyping and code construction.
+I am a mathematician specializing in **algebraic geometry**, **coding theory**, and **quantum error correction**. Since June 2026, I have been working full-time at [Xanadu Quantum Technologies](https://www.xanadu.ai/) as a Senior Quantum Architecture Scientist, focusing on logical prototyping and code construction. I am also a Professor of Mathematics at [Tulane University](https://sse.tulane.edu/math), currently on leave.
 
 My research investigates algebraic structures and their geometric manifestations: algebraic groups and monoids, representation theory, Schubert varieties, and algebraic and geometric constructions for error-correcting codes and secure communication. A growing part of this work connects mathematical structure with computational and communication problems in quantum technologies. See my [CV](/cv/) for an overview and [publications](/publications/) for the complete list.
 
