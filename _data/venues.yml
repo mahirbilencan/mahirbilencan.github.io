@@ -1,4 +1,8 @@
 # Map venue abbreviations (abbr field in papers.bib) to URLs and badge colors.
+"arXiv":
+  url: https://arxiv.org/a/can_m_1
+  color: "#b31b1b"
+
 "DCC":
   url: https://link.springer.com/journal/10623
 

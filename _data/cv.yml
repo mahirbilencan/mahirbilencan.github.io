@@ -62,6 +62,18 @@ cv:
         start_date: 2006
         end_date: 2008
 
+    Research:
+      - bullet: "My research investigates algebraic structures and their geometric manifestations, with emphasis on representation theory, algebraic geometry, and coding theory."
+      - bullet: "**Algebraic groups and monoids:** structure, classification, compactifications, and invariant theory."
+      - bullet: "**Representation theory:** unitary representations, harmonic analysis, and categorical methods."
+      - bullet: "**Algebraic geometry:** birational techniques and singularities tied to representation-theoretic questions."
+      - bullet: "**Coding theory and security:** algebraic and geometric constructions for reliable communication."
+      - bullet: "A growing part of this work connects mathematical structure with computational and communication problems, including quantum technologies, error-correcting codes, and secure information processing. See the [complete publication list](/publications/) for research output and references."
+
+    Industry and Ventures:
+      - bullet: "[**Xanadu Quantum Technologies**](https://www.xanadu.ai/) — Senior Quantum Architecture Scientist."
+      - bullet: "[**QSPARC Labs**](https://www.qsparclabs.com/) — Co-founder and startup venture."
+
     Visiting Positions:
       - bullet: "**NOVA FCT, Portugal** (as a Fulbright U.S. Scholar), May to August 2024."
       - bullet: "**Okinawa Institute of Science and Technology, Japan**, June to September 2023."
@@ -109,9 +121,20 @@ cv:
       - bullet: "Honors and Awards Committee."
 
     Editorial Service:
-      - bullet: "**Semigroup Forum**, editorial board service."
-      - bullet: "**Journal of Gökova Geometry-Topology (GGT)**, editorial board service."
-      - bullet: "**MathSciNet and zbMATH**, regular reviewer."
+      - bullet: "[**Semigroup Forum**](https://www.springer.com/journal/233), editorial board service."
+      - bullet: "[**Journal of Gökova Geometry-Topology (GGT)**](https://www.jggt-online.com/), editorial board service."
+      - bullet: "[**MathSciNet and zbMATH**](https://mathscinet.ams.org/), regular reviewer."
+
+    Conference Organization:
+      - bullet: "**2025 — Coding Theory and Cryptography**, AMS Sectional Meeting, New Orleans, Louisiana. Co-organized with Henry Chimal Dzul and Emily McMillon."
+      - bullet: "**2024 — Generalized Numerical Semigroups**, thematic session at the Conference on Theoretical and Computational Algebra, Aveiro, Portugal. Session organizer."
+      - bullet: "**2023 — Southern Regional Algebra Conference**, Tulane University. Co-organized with Kalina Mincheva and Naufil Sakran."
+
+    Recent Professional Activities:
+      - bullet: "**2025:** Visited IIT Bombay for the conference on Combinatorics, Geometry, and Representation Theory at ICTS."
+      - bullet: "**2025:** Recipient of Tulane's Provost's Proof of Concept award."
+      - bullet: "**2024:** Fulbright U.S. Scholar to Portugal, hosted by Universidade Nova de Lisboa."
+      - bullet: "**2023:** Research visits to IIT Bombay and the Okinawa Institute of Science and Technology."
 
     Honors and Awards:
       - title: Provost's Proof of Concept (SPARC)

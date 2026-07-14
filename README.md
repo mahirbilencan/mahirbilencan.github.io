@@ -16,7 +16,7 @@ My work focuses on algebraic groups and monoids, representation theory, algebrai
 
 - Website: [mahirbilencan.github.io](https://mahirbilencan.github.io/)
 - Publications: [Publications page](https://mahirbilencan.github.io/publications/)
-- Industry & Service: [Industry and service page](https://mahirbilencan.github.io/service/)
+- Research, Industry & Service: [CV page](https://mahirbilencan.github.io/cv/)
 - CV: [CV (PDF)](https://mahirbilencan.github.io/assets/pdf/CV.pdf)
 - Email: [mcan@tulane.edu](mailto:mcan@tulane.edu)
 

@@ -226,6 +226,18 @@ html body h6 {
 }
 
 /*******************************************************************************
+ * Simpler CV page: no location pins, no list bullets (the date badges
+ * already anchor each entry visually).
+ ******************************************************************************/
+html .location {
+  display: none;
+}
+
+html ul.list-group li.list-group-item {
+  list-style: none;
+}
+
+/*******************************************************************************
  * Slimmer footer (theme default is 40px padding top and bottom).
  ******************************************************************************/
 html footer.sticky-bottom {
