@@ -1,0 +1,21 @@
+# Courses taught, grouped for display on the teaching page.
+- institution: Tulane University
+  courses:
+    - Abstract Algebra I (Math 3110/6110)
+    - Abstract Algebra II
+    - Combinatorics
+    - Consolidated Calculus (Math 1310)
+    - Honors Linear Algebra
+    - Linear Algebra (Math 3060/6060)
+    - "Topics in Algebra: Algebraic Geometry I"
+    - "Topics in Algebra: Algebraic Geometry II"
+    - "Topics in Algebra: Coding Theory I"
+    - "Topics in Algebra: Coding Theory II"
+    - "Topics in Algebra: Lie Algebras and Representation Theory"
+    - "Topics in Algebra: Lie Groups and Representation Theory"
+- institution: Yale University
+  courses:
+    - Geometry of Coxeter Groups
+- institution: University of California, San Diego
+  courses:
+    - Vector Calculus (Math 20E)

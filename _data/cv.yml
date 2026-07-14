@@ -1,0 +1,101 @@
+cv:
+  name: Mahir Bilen Can
+  label: Mathematician
+  email: mcan@tulane.edu
+  location: New Orleans, LA
+  image: ""
+  summary: Mathematician specializing in algebraic geometry, coding theory, and quantum error correction. Professor of Mathematics at Tulane University (on leave), joining Xanadu Quantum Technologies full-time in June 2026.
+
+  sections:
+    Education:
+      - institution: University of Pennsylvania
+        location: Philadelphia, PA
+        url: https://www.math.upenn.edu/
+        area: Mathematics
+        studyType: PhD
+        start_date: ""
+        end_date: 2006
+
+      - institution: Middle East Technical University (METU)
+        location: Ankara, Turkey
+        url: https://math.metu.edu.tr/en/program-overview
+        area: Mathematics
+        studyType: BSc
+        start_date: ""
+        end_date: 2001
+
+    Employment:
+      - company: Tulane University
+        position: Professor of Mathematics
+        location: New Orleans, LA
+        start_date: 2020
+        end_date: present
+        summary: On leave.
+
+      - company: Tulane University
+        position: Associate Professor
+        location: New Orleans, LA
+        start_date: 2014
+        end_date: 2020
+
+      - company: Tulane University
+        position: Assistant Professor
+        location: New Orleans, LA
+        start_date: 2008
+        end_date: 2014
+
+      - company: Western University
+        position: Postdoctorate
+        location: London, Ontario, Canada
+        start_date: 2006
+        end_date: 2008
+
+    Industry:
+      - company: Xanadu Quantum Technologies
+        position: Senior Quantum Architecture Scientist
+        location: Toronto, Canada
+        start_date: 2026
+        end_date: present
+        summary: Joining full-time in June 2026; currently consultant.
+
+      - company: QSPARC Labs
+        position: Co-founder
+        start_date: ""
+        end_date: present
+
+    Awards and Grants:
+      - title: Provost's Proof of Concept (SPARC)
+        date: 2025
+        awarder: Tulane University
+        summary: Shortest Path and Antichain Metrics.
+
+      - title: GSSA Faculty Mentor Award
+        date: 2024
+        awarder: Tulane University
+
+      - title: Fulbright U.S. Scholar Program
+        date: 2024
+        awarder: Fulbright Program
+        summary: Scientific visit to Portugal (NOVA FCT), May to August 2024.
+
+      - title: Applications of Representation Theory to Quantum Error Correction
+        date: 2023
+        awarder: Louisiana Board of Regents
+        summary: Research grant, 2023 to 2025.
+
+      - title: Targeted Enhancement Research Grant
+        date: 2021
+        awarder: Louisiana Board of Regents
+        summary: Co-PIs Tai Huy Ha, Rafal Komendarczyk, Kalina Mincheva. 2021 to 2022.
+
+      - title: Algebra and Combinatorics of Symmetric Varieties and Their Embeddings
+        date: 2014
+        awarder: NSA
+        summary: Co-PI Michael Joyce. 2014 to 2015.
+
+    Editorial Service:
+      - title: Semigroup Forum
+        summary: Editorial board service.
+
+      - title: Journal of Gökova Geometry-Topology (GGT)
+        summary: Editorial board service.
