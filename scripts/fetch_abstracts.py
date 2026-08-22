@@ -23,7 +23,7 @@ BIB = "_bibliography/papers.bib"
 
 
 def fetch(url, headers=None):
-    req = urllib.request.Request(url, headers=headers or {"User-Agent": "papers-bib-enricher/1.0 (mailto:mcan@tulane.edu)"})
+    req = urllib.request.Request(url, headers=headers or {"User-Agent": "papers-bib-enricher/1.0 (mailto:mahirbilencan@gmail.com)"})
     with urllib.request.urlopen(req, timeout=30) as r:
         return r.read().decode("utf-8", "replace")
 
